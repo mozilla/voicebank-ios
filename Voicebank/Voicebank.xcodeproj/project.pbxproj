@@ -7,68 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E73CFD51E4E832300216A5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E73CFD41E4E832300216A5D /* main.m */; };
-		3E73CFD81E4E832300216A5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E73CFD71E4E832300216A5D /* AppDelegate.m */; };
-		3E73CFDB1E4E832300216A5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E73CFDA1E4E832300216A5D /* ViewController.m */; };
-		3E73CFDE1E4E832300216A5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E73CFDC1E4E832300216A5D /* Main.storyboard */; };
-		3E73CFE01E4E832300216A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E73CFDF1E4E832300216A5D /* Assets.xcassets */; };
-		3E73CFE31E4E832300216A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E73CFE11E4E832300216A5D /* LaunchScreen.storyboard */; };
-		3E73CFEE1E4E832300216A5D /* VoicebankTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E73CFED1E4E832300216A5D /* VoicebankTests.m */; };
-		3E73CFF91E4E832300216A5D /* VoicebankUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E73CFF81E4E832300216A5D /* VoicebankUITests.m */; };
+		3E5C8E8D1E579B2C00AE2AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8E8C1E579B2C00AE2AE4 /* AppDelegate.swift */; };
+		3E5C8E8F1E579B2C00AE2AE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8E8E1E579B2C00AE2AE4 /* ViewController.swift */; };
+		3E5C8E921E579B2C00AE2AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5C8E901E579B2C00AE2AE4 /* Main.storyboard */; };
+		3E5C8E941E579B2C00AE2AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5C8E931E579B2C00AE2AE4 /* Assets.xcassets */; };
+		3E5C8E971E579B2C00AE2AE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5C8E951E579B2C00AE2AE4 /* LaunchScreen.storyboard */; };
+		3E5C8EA21E579B2C00AE2AE4 /* VoicebankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8EA11E579B2C00AE2AE4 /* VoicebankTests.swift */; };
+		3E5C8EAD1E579B2C00AE2AE4 /* VoicebankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8EAC1E579B2C00AE2AE4 /* VoicebankUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3E73CFEA1E4E832300216A5D /* PBXContainerItemProxy */ = {
+		3E5C8E9E1E579B2C00AE2AE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3E73CFC81E4E832300216A5D /* Project object */;
+			containerPortal = 3E5C8E811E579B2C00AE2AE4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3E73CFCF1E4E832300216A5D;
+			remoteGlobalIDString = 3E5C8E881E579B2C00AE2AE4;
 			remoteInfo = Voicebank;
 		};
-		3E73CFF51E4E832300216A5D /* PBXContainerItemProxy */ = {
+		3E5C8EA91E579B2C00AE2AE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3E73CFC81E4E832300216A5D /* Project object */;
+			containerPortal = 3E5C8E811E579B2C00AE2AE4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3E73CFCF1E4E832300216A5D;
+			remoteGlobalIDString = 3E5C8E881E579B2C00AE2AE4;
 			remoteInfo = Voicebank;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E73CFD01E4E832300216A5D /* Voicebank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voicebank.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E73CFD41E4E832300216A5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3E73CFD61E4E832300216A5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3E73CFD71E4E832300216A5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3E73CFD91E4E832300216A5D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3E73CFDA1E4E832300216A5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3E73CFDD1E4E832300216A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3E73CFDF1E4E832300216A5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3E73CFE21E4E832300216A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3E73CFE41E4E832300216A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E73CFE91E4E832300216A5D /* VoicebankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoicebankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E73CFED1E4E832300216A5D /* VoicebankTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoicebankTests.m; sourceTree = "<group>"; };
-		3E73CFEF1E4E832300216A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E73CFF41E4E832300216A5D /* VoicebankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoicebankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E73CFF81E4E832300216A5D /* VoicebankUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoicebankUITests.m; sourceTree = "<group>"; };
-		3E73CFFA1E4E832300216A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E5C8E891E579B2C00AE2AE4 /* Voicebank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voicebank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E5C8E8C1E579B2C00AE2AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3E5C8E8E1E579B2C00AE2AE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E5C8E911E579B2C00AE2AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3E5C8E931E579B2C00AE2AE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E5C8E961E579B2C00AE2AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3E5C8E981E579B2C00AE2AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E5C8E9D1E579B2C00AE2AE4 /* VoicebankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoicebankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E5C8EA11E579B2C00AE2AE4 /* VoicebankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicebankTests.swift; sourceTree = "<group>"; };
+		3E5C8EA31E579B2C00AE2AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E5C8EA81E579B2C00AE2AE4 /* VoicebankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoicebankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E5C8EAC1E579B2C00AE2AE4 /* VoicebankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicebankUITests.swift; sourceTree = "<group>"; };
+		3E5C8EAE1E579B2C00AE2AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3E73CFCD1E4E832300216A5D /* Frameworks */ = {
+		3E5C8E861E579B2C00AE2AE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E73CFE61E4E832300216A5D /* Frameworks */ = {
+		3E5C8E9A1E579B2C00AE2AE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E73CFF11E4E832300216A5D /* Frameworks */ = {
+		3E5C8EA51E579B2C00AE2AE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,64 +74,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3E73CFC71E4E832300216A5D = {
+		3E5C8E801E579B2C00AE2AE4 = {
 			isa = PBXGroup;
 			children = (
-				3E73CFD21E4E832300216A5D /* Voicebank */,
-				3E73CFEC1E4E832300216A5D /* VoicebankTests */,
-				3E73CFF71E4E832300216A5D /* VoicebankUITests */,
-				3E73CFD11E4E832300216A5D /* Products */,
+				3E5C8E8B1E579B2C00AE2AE4 /* Voicebank */,
+				3E5C8EA01E579B2C00AE2AE4 /* VoicebankTests */,
+				3E5C8EAB1E579B2C00AE2AE4 /* VoicebankUITests */,
+				3E5C8E8A1E579B2C00AE2AE4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3E73CFD11E4E832300216A5D /* Products */ = {
+		3E5C8E8A1E579B2C00AE2AE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E73CFD01E4E832300216A5D /* Voicebank.app */,
-				3E73CFE91E4E832300216A5D /* VoicebankTests.xctest */,
-				3E73CFF41E4E832300216A5D /* VoicebankUITests.xctest */,
+				3E5C8E891E579B2C00AE2AE4 /* Voicebank.app */,
+				3E5C8E9D1E579B2C00AE2AE4 /* VoicebankTests.xctest */,
+				3E5C8EA81E579B2C00AE2AE4 /* VoicebankUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E73CFD21E4E832300216A5D /* Voicebank */ = {
+		3E5C8E8B1E579B2C00AE2AE4 /* Voicebank */ = {
 			isa = PBXGroup;
 			children = (
-				3E73CFD61E4E832300216A5D /* AppDelegate.h */,
-				3E73CFD71E4E832300216A5D /* AppDelegate.m */,
-				3E73CFD91E4E832300216A5D /* ViewController.h */,
-				3E73CFDA1E4E832300216A5D /* ViewController.m */,
-				3E73CFDC1E4E832300216A5D /* Main.storyboard */,
-				3E73CFDF1E4E832300216A5D /* Assets.xcassets */,
-				3E73CFE11E4E832300216A5D /* LaunchScreen.storyboard */,
-				3E73CFE41E4E832300216A5D /* Info.plist */,
-				3E73CFD31E4E832300216A5D /* Supporting Files */,
+				3E5C8E8C1E579B2C00AE2AE4 /* AppDelegate.swift */,
+				3E5C8E8E1E579B2C00AE2AE4 /* ViewController.swift */,
+				3E5C8E901E579B2C00AE2AE4 /* Main.storyboard */,
+				3E5C8E931E579B2C00AE2AE4 /* Assets.xcassets */,
+				3E5C8E951E579B2C00AE2AE4 /* LaunchScreen.storyboard */,
+				3E5C8E981E579B2C00AE2AE4 /* Info.plist */,
 			);
 			path = Voicebank;
 			sourceTree = "<group>";
 		};
-		3E73CFD31E4E832300216A5D /* Supporting Files */ = {
+		3E5C8EA01E579B2C00AE2AE4 /* VoicebankTests */ = {
 			isa = PBXGroup;
 			children = (
-				3E73CFD41E4E832300216A5D /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3E73CFEC1E4E832300216A5D /* VoicebankTests */ = {
-			isa = PBXGroup;
-			children = (
-				3E73CFED1E4E832300216A5D /* VoicebankTests.m */,
-				3E73CFEF1E4E832300216A5D /* Info.plist */,
+				3E5C8EA11E579B2C00AE2AE4 /* VoicebankTests.swift */,
+				3E5C8EA31E579B2C00AE2AE4 /* Info.plist */,
 			);
 			path = VoicebankTests;
 			sourceTree = "<group>";
 		};
-		3E73CFF71E4E832300216A5D /* VoicebankUITests */ = {
+		3E5C8EAB1E579B2C00AE2AE4 /* VoicebankUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3E73CFF81E4E832300216A5D /* VoicebankUITests.m */,
-				3E73CFFA1E4E832300216A5D /* Info.plist */,
+				3E5C8EAC1E579B2C00AE2AE4 /* VoicebankUITests.swift */,
+				3E5C8EAE1E579B2C00AE2AE4 /* Info.plist */,
 			);
 			path = VoicebankUITests;
 			sourceTree = "<group>";
@@ -143,13 +128,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E73CFCF1E4E832300216A5D /* Voicebank */ = {
+		3E5C8E881E579B2C00AE2AE4 /* Voicebank */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E73CFFD1E4E832300216A5D /* Build configuration list for PBXNativeTarget "Voicebank" */;
+			buildConfigurationList = 3E5C8EB11E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "Voicebank" */;
 			buildPhases = (
-				3E73CFCC1E4E832300216A5D /* Sources */,
-				3E73CFCD1E4E832300216A5D /* Frameworks */,
-				3E73CFCE1E4E832300216A5D /* Resources */,
+				3E5C8E851E579B2C00AE2AE4 /* Sources */,
+				3E5C8E861E579B2C00AE2AE4 /* Frameworks */,
+				3E5C8E871E579B2C00AE2AE4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -157,74 +142,75 @@
 			);
 			name = Voicebank;
 			productName = Voicebank;
-			productReference = 3E73CFD01E4E832300216A5D /* Voicebank.app */;
+			productReference = 3E5C8E891E579B2C00AE2AE4 /* Voicebank.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3E73CFE81E4E832300216A5D /* VoicebankTests */ = {
+		3E5C8E9C1E579B2C00AE2AE4 /* VoicebankTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E73D0001E4E832300216A5D /* Build configuration list for PBXNativeTarget "VoicebankTests" */;
+			buildConfigurationList = 3E5C8EB41E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "VoicebankTests" */;
 			buildPhases = (
-				3E73CFE51E4E832300216A5D /* Sources */,
-				3E73CFE61E4E832300216A5D /* Frameworks */,
-				3E73CFE71E4E832300216A5D /* Resources */,
+				3E5C8E991E579B2C00AE2AE4 /* Sources */,
+				3E5C8E9A1E579B2C00AE2AE4 /* Frameworks */,
+				3E5C8E9B1E579B2C00AE2AE4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3E73CFEB1E4E832300216A5D /* PBXTargetDependency */,
+				3E5C8E9F1E579B2C00AE2AE4 /* PBXTargetDependency */,
 			);
 			name = VoicebankTests;
 			productName = VoicebankTests;
-			productReference = 3E73CFE91E4E832300216A5D /* VoicebankTests.xctest */;
+			productReference = 3E5C8E9D1E579B2C00AE2AE4 /* VoicebankTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3E73CFF31E4E832300216A5D /* VoicebankUITests */ = {
+		3E5C8EA71E579B2C00AE2AE4 /* VoicebankUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E73D0031E4E832300216A5D /* Build configuration list for PBXNativeTarget "VoicebankUITests" */;
+			buildConfigurationList = 3E5C8EB71E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "VoicebankUITests" */;
 			buildPhases = (
-				3E73CFF01E4E832300216A5D /* Sources */,
-				3E73CFF11E4E832300216A5D /* Frameworks */,
-				3E73CFF21E4E832300216A5D /* Resources */,
+				3E5C8EA41E579B2C00AE2AE4 /* Sources */,
+				3E5C8EA51E579B2C00AE2AE4 /* Frameworks */,
+				3E5C8EA61E579B2C00AE2AE4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3E73CFF61E4E832300216A5D /* PBXTargetDependency */,
+				3E5C8EAA1E579B2C00AE2AE4 /* PBXTargetDependency */,
 			);
 			name = VoicebankUITests;
 			productName = VoicebankUITests;
-			productReference = 3E73CFF41E4E832300216A5D /* VoicebankUITests.xctest */;
+			productReference = 3E5C8EA81E579B2C00AE2AE4 /* VoicebankUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3E73CFC81E4E832300216A5D /* Project object */ = {
+		3E5C8E811E579B2C00AE2AE4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Andre Natal";
 				TargetAttributes = {
-					3E73CFCF1E4E832300216A5D = {
+					3E5C8E881E579B2C00AE2AE4 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EL6XVK58NU;
 						ProvisioningStyle = Automatic;
 					};
-					3E73CFE81E4E832300216A5D = {
+					3E5C8E9C1E579B2C00AE2AE4 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EL6XVK58NU;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 3E73CFCF1E4E832300216A5D;
+						TestTargetID = 3E5C8E881E579B2C00AE2AE4;
 					};
-					3E73CFF31E4E832300216A5D = {
+					3E5C8EA71E579B2C00AE2AE4 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EL6XVK58NU;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 3E73CFCF1E4E832300216A5D;
+						TestTargetID = 3E5C8E881E579B2C00AE2AE4;
 					};
 				};
 			};
-			buildConfigurationList = 3E73CFCB1E4E832300216A5D /* Build configuration list for PBXProject "Voicebank" */;
+			buildConfigurationList = 3E5C8E841E579B2C00AE2AE4 /* Build configuration list for PBXProject "Voicebank" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -232,37 +218,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 3E73CFC71E4E832300216A5D;
-			productRefGroup = 3E73CFD11E4E832300216A5D /* Products */;
+			mainGroup = 3E5C8E801E579B2C00AE2AE4;
+			productRefGroup = 3E5C8E8A1E579B2C00AE2AE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3E73CFCF1E4E832300216A5D /* Voicebank */,
-				3E73CFE81E4E832300216A5D /* VoicebankTests */,
-				3E73CFF31E4E832300216A5D /* VoicebankUITests */,
+				3E5C8E881E579B2C00AE2AE4 /* Voicebank */,
+				3E5C8E9C1E579B2C00AE2AE4 /* VoicebankTests */,
+				3E5C8EA71E579B2C00AE2AE4 /* VoicebankUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3E73CFCE1E4E832300216A5D /* Resources */ = {
+		3E5C8E871E579B2C00AE2AE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E73CFE31E4E832300216A5D /* LaunchScreen.storyboard in Resources */,
-				3E73CFE01E4E832300216A5D /* Assets.xcassets in Resources */,
-				3E73CFDE1E4E832300216A5D /* Main.storyboard in Resources */,
+				3E5C8E971E579B2C00AE2AE4 /* LaunchScreen.storyboard in Resources */,
+				3E5C8E941E579B2C00AE2AE4 /* Assets.xcassets in Resources */,
+				3E5C8E921E579B2C00AE2AE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E73CFE71E4E832300216A5D /* Resources */ = {
+		3E5C8E9B1E579B2C00AE2AE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E73CFF21E4E832300216A5D /* Resources */ = {
+		3E5C8EA61E579B2C00AE2AE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,60 +258,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3E73CFCC1E4E832300216A5D /* Sources */ = {
+		3E5C8E851E579B2C00AE2AE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E73CFDB1E4E832300216A5D /* ViewController.m in Sources */,
-				3E73CFD81E4E832300216A5D /* AppDelegate.m in Sources */,
-				3E73CFD51E4E832300216A5D /* main.m in Sources */,
+				3E5C8E8F1E579B2C00AE2AE4 /* ViewController.swift in Sources */,
+				3E5C8E8D1E579B2C00AE2AE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E73CFE51E4E832300216A5D /* Sources */ = {
+		3E5C8E991E579B2C00AE2AE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E73CFEE1E4E832300216A5D /* VoicebankTests.m in Sources */,
+				3E5C8EA21E579B2C00AE2AE4 /* VoicebankTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E73CFF01E4E832300216A5D /* Sources */ = {
+		3E5C8EA41E579B2C00AE2AE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E73CFF91E4E832300216A5D /* VoicebankUITests.m in Sources */,
+				3E5C8EAD1E579B2C00AE2AE4 /* VoicebankUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3E73CFEB1E4E832300216A5D /* PBXTargetDependency */ = {
+		3E5C8E9F1E579B2C00AE2AE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3E73CFCF1E4E832300216A5D /* Voicebank */;
-			targetProxy = 3E73CFEA1E4E832300216A5D /* PBXContainerItemProxy */;
+			target = 3E5C8E881E579B2C00AE2AE4 /* Voicebank */;
+			targetProxy = 3E5C8E9E1E579B2C00AE2AE4 /* PBXContainerItemProxy */;
 		};
-		3E73CFF61E4E832300216A5D /* PBXTargetDependency */ = {
+		3E5C8EAA1E579B2C00AE2AE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3E73CFCF1E4E832300216A5D /* Voicebank */;
-			targetProxy = 3E73CFF51E4E832300216A5D /* PBXContainerItemProxy */;
+			target = 3E5C8E881E579B2C00AE2AE4 /* Voicebank */;
+			targetProxy = 3E5C8EA91E579B2C00AE2AE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3E73CFDC1E4E832300216A5D /* Main.storyboard */ = {
+		3E5C8E901E579B2C00AE2AE4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3E73CFDD1E4E832300216A5D /* Base */,
+				3E5C8E911E579B2C00AE2AE4 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3E73CFE11E4E832300216A5D /* LaunchScreen.storyboard */ = {
+		3E5C8E951E579B2C00AE2AE4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3E73CFE21E4E832300216A5D /* Base */,
+				3E5C8E961E579B2C00AE2AE4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -333,7 +318,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3E73CFFB1E4E832300216A5D /* Debug */ = {
+		3E5C8EAF1E579B2C00AE2AE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -377,10 +362,12 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		3E73CFFC1E4E832300216A5D /* Release */ = {
+		3E5C8EB01E579B2C00AE2AE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -417,80 +404,91 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		3E73CFFE1E4E832300216A5D /* Debug */ = {
+		3E5C8EB21E579B2C00AE2AE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = Voicebank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.Voicebank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		3E73CFFF1E4E832300216A5D /* Release */ = {
+		3E5C8EB31E579B2C00AE2AE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = Voicebank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.Voicebank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		3E73D0011E4E832300216A5D /* Debug */ = {
+		3E5C8EB51E579B2C00AE2AE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = VoicebankTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.VoicebankTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voicebank.app/Voicebank";
 			};
 			name = Debug;
 		};
-		3E73D0021E4E832300216A5D /* Release */ = {
+		3E5C8EB61E579B2C00AE2AE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = VoicebankTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.VoicebankTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voicebank.app/Voicebank";
 			};
 			name = Release;
 		};
-		3E73D0041E4E832300216A5D /* Debug */ = {
+		3E5C8EB81E579B2C00AE2AE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = VoicebankUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.VoicebankUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Voicebank;
 			};
 			name = Debug;
 		};
-		3E73D0051E4E832300216A5D /* Release */ = {
+		3E5C8EB91E579B2C00AE2AE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = VoicebankUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.VoicebankUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Voicebank;
 			};
 			name = Release;
@@ -498,40 +496,40 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E73CFCB1E4E832300216A5D /* Build configuration list for PBXProject "Voicebank" */ = {
+		3E5C8E841E579B2C00AE2AE4 /* Build configuration list for PBXProject "Voicebank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3E73CFFB1E4E832300216A5D /* Debug */,
-				3E73CFFC1E4E832300216A5D /* Release */,
+				3E5C8EAF1E579B2C00AE2AE4 /* Debug */,
+				3E5C8EB01E579B2C00AE2AE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E73CFFD1E4E832300216A5D /* Build configuration list for PBXNativeTarget "Voicebank" */ = {
+		3E5C8EB11E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "Voicebank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3E73CFFE1E4E832300216A5D /* Debug */,
-				3E73CFFF1E4E832300216A5D /* Release */,
+				3E5C8EB21E579B2C00AE2AE4 /* Debug */,
+				3E5C8EB31E579B2C00AE2AE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		3E73D0001E4E832300216A5D /* Build configuration list for PBXNativeTarget "VoicebankTests" */ = {
+		3E5C8EB41E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "VoicebankTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3E73D0011E4E832300216A5D /* Debug */,
-				3E73D0021E4E832300216A5D /* Release */,
+				3E5C8EB51E579B2C00AE2AE4 /* Debug */,
+				3E5C8EB61E579B2C00AE2AE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		3E73D0031E4E832300216A5D /* Build configuration list for PBXNativeTarget "VoicebankUITests" */ = {
+		3E5C8EB71E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "VoicebankUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3E73D0041E4E832300216A5D /* Debug */,
-				3E73D0051E4E832300216A5D /* Release */,
+				3E5C8EB81E579B2C00AE2AE4 /* Debug */,
+				3E5C8EB91E579B2C00AE2AE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3E73CFC81E4E832300216A5D /* Project object */;
+	rootObject = 3E5C8E811E579B2C00AE2AE4 /* Project object */;
 }
