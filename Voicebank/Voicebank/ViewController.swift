@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var recordButton: UIButton!
+    var recorder: Recorder!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        recorder = Recorder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func recordTapped() {
+        if (self.recorder != nil){
+            if (!self.recorder.isRecording()){
+                self.recorder.startRecording()
+                recordButton.setTitle("Tap to Stop", for: .normal)
+            } else {
+                self.recorder.stopRecording()
+                recordButton.setTitle("Record", for: .normal)
+            }
+        }
+    }
+    
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E4AC4191E5E3A61003061F5 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AC4181E5E3A61003061F5 /* Recorder.swift */; };
 		3E5C8E8D1E579B2C00AE2AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8E8C1E579B2C00AE2AE4 /* AppDelegate.swift */; };
 		3E5C8E8F1E579B2C00AE2AE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8E8E1E579B2C00AE2AE4 /* ViewController.swift */; };
 		3E5C8E921E579B2C00AE2AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5C8E901E579B2C00AE2AE4 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		3E5C8E971E579B2C00AE2AE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5C8E951E579B2C00AE2AE4 /* LaunchScreen.storyboard */; };
 		3E5C8EA21E579B2C00AE2AE4 /* VoicebankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8EA11E579B2C00AE2AE4 /* VoicebankTests.swift */; };
 		3E5C8EAD1E579B2C00AE2AE4 /* VoicebankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8EAC1E579B2C00AE2AE4 /* VoicebankUITests.swift */; };
+		3EA962931E64E70D009F736B /* WSComm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA962921E64E70D009F736B /* WSComm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E4AC4181E5E3A61003061F5 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		3E5C8E891E579B2C00AE2AE4 /* Voicebank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voicebank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5C8E8C1E579B2C00AE2AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E5C8E8E1E579B2C00AE2AE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		3E5C8EA81E579B2C00AE2AE4 /* VoicebankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoicebankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5C8EAC1E579B2C00AE2AE4 /* VoicebankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicebankUITests.swift; sourceTree = "<group>"; };
 		3E5C8EAE1E579B2C00AE2AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EA962921E64E70D009F736B /* WSComm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSComm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				3E5C8E931E579B2C00AE2AE4 /* Assets.xcassets */,
 				3E5C8E951E579B2C00AE2AE4 /* LaunchScreen.storyboard */,
 				3E5C8E981E579B2C00AE2AE4 /* Info.plist */,
+				3E4AC4181E5E3A61003061F5 /* Recorder.swift */,
+				3EA962921E64E70D009F736B /* WSComm.swift */,
 			);
 			path = Voicebank;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E5C8E8F1E579B2C00AE2AE4 /* ViewController.swift in Sources */,
+				3EA962931E64E70D009F736B /* WSComm.swift in Sources */,
+				3E4AC4191E5E3A61003061F5 /* Recorder.swift in Sources */,
 				3E5C8E8D1E579B2C00AE2AE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +520,7 @@
 				3E5C8EB31E579B2C00AE2AE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E5C8EB41E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "VoicebankTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +529,7 @@
 				3E5C8EB61E579B2C00AE2AE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E5C8EB71E579B2C00AE2AE4 /* Build configuration list for PBXNativeTarget "VoicebankUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +538,7 @@
 				3E5C8EB91E579B2C00AE2AE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
