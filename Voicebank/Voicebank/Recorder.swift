@@ -41,7 +41,7 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
         }
     }
     
-    func createRecorder(){
+    func createRecorder() {
         self.audioFilename = getDocsFolder().appendingPathComponent("recording.m4a")
         
         let settings = [
