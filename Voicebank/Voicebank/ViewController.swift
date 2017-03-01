@@ -33,6 +33,9 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         // Flip the view around.
         self.leftWaveView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
         
+        // Center record button.
+        let mid = self.view.bounds.width / 2.0
+        recordButton.center = CGPoint(x: mid, y: recordButton.center.y)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +54,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     @IBAction func recordTapped() {
         print("recordTapped")
         if (self.recorder != nil){
-            if (!self.recorder.isRecording()){
+            if (!self.recorder.isRecording()) {
                 self.recorder.startRecording()
                 amplitudeDelta = 0.01
             } else {
