@@ -16,7 +16,8 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     @IBOutlet weak var recordButton: LongPressRecordButton!
     var recorder: Recorder!
     var engine:AVAudioEngine = AVAudioEngine()
-
+    var audioPlayer:AVAudioPlayer!
+    
     @IBOutlet weak var leftWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var rightWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var textView: UITextView!
@@ -62,8 +63,6 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         recordTapped()
     }
     
-    
-    
     func showRandomQuote() {
         showText(quotes[Int(arc4random_uniform(UInt32(quotes.count)))])
     }
@@ -73,8 +72,10 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         if isRecording {
             amplitudeDelta = -0.01
             showRandomQuote()
+            playSound("fuzz")
         } else {
             amplitudeDelta = 0.01
+            playSound("fuzz")
         }
         isRecording = !isRecording
     }
@@ -123,6 +124,21 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
             }
         }
         try! engine.start()
+    }
+    
+    func playSound(_ sound: String) {
+        let audioFilePath = Bundle.main.path(forResource: sound, ofType: "mp3")
+        if audioFilePath != nil {
+            let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl)
+                audioPlayer.play()
+            } catch {
+                print("Error Playing Audio Clip")
+            }
+        } else {
+            print("Audio file is not found")
+        }
     }
 }
 
