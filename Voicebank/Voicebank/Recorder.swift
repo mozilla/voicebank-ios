@@ -11,14 +11,16 @@ import AVFoundation
 
 class Recorder:  NSObject, AVAudioRecorderDelegate {
     
-    var recordingSession : AVAudioSession!
+    var recordingSession: AVAudioSession!
     var permission_granted = false
-    var audioRecorder : AVAudioRecorder!
+    var audioRecorder: AVAudioRecorder!
     var audioFilename: URL!
+    var wsComm: WSComm!
+    var sentenceKey: String = ""
     
-    override init() {
+    init(wsComm: WSComm!) {
         super.init()
-        
+        self.wsComm = wsComm
         self.recordingSession = AVAudioSession.sharedInstance()
         
         do {
@@ -59,7 +61,6 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
         }
     }
     
-    
     func startRecording() {
         self.audioRecorder.record()
     }
@@ -85,8 +86,7 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             // show the toast with the counter
-            
-            //self.wsComm.uploadAudio(audioFile : self.audioFilename)
+            self.wsComm.uploadAudio(audioFile: self.audioFilename, sentenceKey: self.sentenceKey)
         }
     }
     

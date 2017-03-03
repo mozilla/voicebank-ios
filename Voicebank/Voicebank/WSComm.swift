@@ -11,24 +11,25 @@ import Foundation
 class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
    
     var responseData = NSMutableData()
-    let webserviceHostname = "http://127.0.0.1:8000"
+    let webserviceHostname = "http://192.168.0.26:8000"
     override init(){
         
     }
     
-    func uploadAudio(audioFile : URL, audioIdentifier : NSString) {
+    func uploadAudio(audioFile : URL, sentenceKey : String) {
         do {
             let data: NSData = try NSData(contentsOfFile: audioFile.path)
-            let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceHostname)/upload/\(audioIdentifier)/") as! URL)
+            
+            let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceHostname)/upload/\(sentenceKey)/") as! URL)
             request.httpMethod = "POST"
             request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
             request.setValue("audio/mp4a", forHTTPHeaderField: "content-type")
+            request.setValue(UUID().uuidString, forHTTPHeaderField: "uid")
             
             let configuration = URLSessionConfiguration.default
             let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
             let task = session.uploadTask(with: request as URLRequest, from: data as Data)
             task.resume()
-            
         } catch let error as NSError{
             print("Error: \(error)")
         }

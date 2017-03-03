@@ -29,7 +29,6 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        recorder = Recorder()
         startWaveView()
         recordButton.delegate = self
         
@@ -44,11 +43,13 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         // first we download the sentences
         self.wsComm.getSentences(completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
             // then we parse it
-            self.jsonSentences = try? JSONSerialization.jsonObject(with: data!, options: [])
-            // and show the first sentence
-            self.showRandomQuote()
+            if ((data) != nil) {
+                self.jsonSentences = try? JSONSerialization.jsonObject(with: data!, options: [])
+                // and show the first sentence
+                self.showRandomQuote()
+            }
         })
-        
+        recorder = Recorder(wsComm: self.wsComm)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,24 +67,29 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     
     func showRandomQuote() {
         if let dictionary = self.jsonSentences as? NSDictionary {
-            if let valor = dictionary["s\(String(format: "%04d", Int(arc4random_uniform(UInt32(dictionary.count)))))"] as? String {
-                // access individual value in dictionary
-                showText(valor)
+            let sentenceKey = "s\(String(format: "%04d", Int(arc4random_uniform(UInt32(dictionary.count)))))"
+            if let sentence = dictionary[sentenceKey] as? String {
+                // display the sentence
+                showText(sentence)
+                // set the sentencekey to the recorder
+                recorder.sentenceKey = sentenceKey
             }
         }
     }
     
-    var isRecording = false
     @IBAction func recordTapped() {
-        if isRecording {
-            amplitudeDelta = -0.01
-            showRandomQuote()
-            playSound("fuzz")
-        } else {
+        if !self.recorder.isRecording() {
+            NSLog("start recording")
             amplitudeDelta = 0.01
             playSound("fuzz")
+            showRandomQuote()
+            recorder.startRecording()
+        } else {
+            NSLog("stop recording")
+            amplitudeDelta = -0.01
+            recorder.stopRecording()
+            playSound("fuzz")
         }
-        isRecording = !isRecording
     }
     
     func showText(_ text: String) {
