@@ -14,13 +14,11 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     var recordingSession : AVAudioSession!
     var permission_granted = false
     var audioRecorder : AVAudioRecorder!
-    var wsComm : WSComm!
     var audioFilename: URL!
     
     override init() {
         super.init()
         
-        self.wsComm = WSComm()
         self.recordingSession = AVAudioSession.sharedInstance()
         
         do {
@@ -88,7 +86,7 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
         if flag {
             // show the toast with the counter
             
-            self.wsComm.uploadAudio(audioFile : self.audioFilename)
+            //self.wsComm.uploadAudio(audioFile : self.audioFilename)
         }
     }
     

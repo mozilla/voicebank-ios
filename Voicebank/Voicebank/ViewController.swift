@@ -17,21 +17,14 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     var recorder: Recorder!
     var engine:AVAudioEngine = AVAudioEngine()
     var audioPlayer:AVAudioPlayer!
+    var wsComm : WSComm!
+    var jsonSentences : Any?
     
     @IBOutlet weak var leftWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var rightWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var textView: UITextView!
     
     var timer:Timer?
-    
-    let quotes = [
-        "“Don't cry because it's over, smile because it happened.” ― Dr. Seuss",
-        "“Never put off till tomorrow what may be done day after tomorrow just as well.” ― Mark Twain",
-        "“Be yourself; everyone else is already taken.” ― Oscar Wilde",
-        "“You only live once, but if you do it right, once is enough.” ― Mae West",
-        "“No one can make you feel inferior without your consent.” ― Eleanor Roosevelt, This is My Story",
-        "“Live as if you were to die tomorrow. Learn as if you were to live forever.” ― Mahatma Gandhi"
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +39,16 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         // Center record button.
         let mid = self.view.bounds.width / 2.0
         recordButton.center = CGPoint(x: mid, y: recordButton.center.y)
-    
-        showRandomQuote()
+        
+        self.wsComm = WSComm()
+        // first we download the sentences
+        self.wsComm.getSentences(completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
+            // then we parse it
+            self.jsonSentences = try? JSONSerialization.jsonObject(with: data!, options: [])
+            // and show the first sentence
+            self.showRandomQuote()
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +65,12 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
     
     func showRandomQuote() {
-        showText(quotes[Int(arc4random_uniform(UInt32(quotes.count)))])
+        if let dictionary = self.jsonSentences as? NSDictionary {
+            if let valor = dictionary["s\(String(format: "%04d", Int(arc4random_uniform(UInt32(dictionary.count)))))"] as? String {
+                // access individual value in dictionary
+                showText(valor)
+            }
+        }
     }
     
     var isRecording = false
