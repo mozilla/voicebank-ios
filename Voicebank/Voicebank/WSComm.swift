@@ -11,7 +11,7 @@ import Foundation
 class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
    
     var responseData = NSMutableData()
-    let webserviceHostname = "http://192.168.0.26:8000"
+    let webserviceHostname = "https://murmur.vaani.io"
     override init(){
         
     }
