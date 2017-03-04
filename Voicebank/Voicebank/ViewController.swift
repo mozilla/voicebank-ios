@@ -106,7 +106,6 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
             NSLog("start recording")
             amplitudeDelta = 0.01
             playSound("click3")
-            showRandomQuote()
             recorder.startRecording()
         } else {
             NSLog("stop recording")
