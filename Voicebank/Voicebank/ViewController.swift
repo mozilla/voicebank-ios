@@ -49,7 +49,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
                 self.showRandomQuote()
             }
         })
-        recorder = Recorder(wsComm: self.wsComm)
+        recorder = Recorder(wsComm: self.wsComm, viewController: self)
         
         // we add the swipes here
         // first to the left

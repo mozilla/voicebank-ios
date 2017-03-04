@@ -16,7 +16,7 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
         
     }
     
-    func uploadAudio(audioFile : URL, sentenceKey : String) {
+    func uploadAudio(audioFile : URL, sentenceKey : String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         do {
             let data: NSData = try NSData(contentsOfFile: audioFile.path)
             
@@ -28,7 +28,7 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
             
             let configuration = URLSessionConfiguration.default
             let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
-            let task = session.uploadTask(with: request as URLRequest, from: data as Data)
+            let task = session.uploadTask(with: request as URLRequest, from: data as Data, completionHandler: completion)
             task.resume()
         } catch let error as NSError{
             print("Error: \(error)")
