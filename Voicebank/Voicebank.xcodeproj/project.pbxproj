@@ -440,7 +440,7 @@
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = Voicebank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.Voicebank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -453,7 +453,7 @@
 				DEVELOPMENT_TEAM = EL6XVK58NU;
 				INFOPLIST_FILE = Voicebank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank.Voicebank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andre.mozilla.voicebank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
