@@ -63,7 +63,7 @@
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minPressDuration">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.29999999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>

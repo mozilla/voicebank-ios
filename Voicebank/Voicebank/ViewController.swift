@@ -103,14 +103,14 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         if !self.recorder.isRecording() {
             NSLog("start recording")
             amplitudeDelta = 0.01
-            playSound("fuzz")
+            playSound("click3")
             showRandomQuote()
             recorder.startRecording()
         } else {
             NSLog("stop recording")
             amplitudeDelta = -0.01
             recorder.stopRecording()
-            playSound("fuzz")
+            playSound("click2")
         }
     }
     
@@ -161,7 +161,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
     
     func playSound(_ sound: String) {
-        let audioFilePath = Bundle.main.path(forResource: sound, ofType: "mp3")
+        let audioFilePath = Bundle.main.path(forResource: sound, ofType: "wav")
         if audioFilePath != nil {
             let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
             do {
