@@ -52,14 +52,16 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         recorder = Recorder(wsComm: self.wsComm, viewController: self)
         
         // we add the swipes here
+        
         // first to the left
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
-        textView.addGestureRecognizer(swipeLeft)
+        self.view.addGestureRecognizer(swipeLeft)
+        
         // and then to the right
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
-        textView.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeRight)
     }
     
     func viewSwipped(gesture: UIGestureRecognizer) {
@@ -103,14 +105,14 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         if !self.recorder.isRecording() {
             NSLog("start recording")
             amplitudeDelta = 0.01
-            playSound("fuzz")
+            playSound("click3")
             showRandomQuote()
             recorder.startRecording()
         } else {
             NSLog("stop recording")
             amplitudeDelta = -0.01
             recorder.stopRecording()
-            playSound("fuzz")
+            playSound("click2")
         }
     }
     
@@ -161,7 +163,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
     
     func playSound(_ sound: String) {
-        let audioFilePath = Bundle.main.path(forResource: sound, ofType: "mp3")
+        let audioFilePath = Bundle.main.path(forResource: sound, ofType: "wav")
         if audioFilePath != nil {
             let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
             do {
