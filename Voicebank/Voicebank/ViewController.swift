@@ -50,6 +50,28 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
             }
         })
         recorder = Recorder(wsComm: self.wsComm)
+        
+        // we add the swipes here
+        // first to the left
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        textView.addGestureRecognizer(swipeLeft)
+        // and then to the right
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        textView.addGestureRecognizer(swipeRight)
+    }
+    
+    func viewSwipped(gesture: UIGestureRecognizer) {
+        if gesture.view != nil {
+            if ((gesture as! UISwipeGestureRecognizer).direction == UISwipeGestureRecognizerDirection.right) {
+                NSLog("text view swipped right")
+                showRandomQuote()
+            } else {
+                NSLog("text view swipped left")
+                showRandomQuote()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
