@@ -104,15 +104,27 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     @IBAction func recordTapped() {
         if !self.recorder.isRecording() {
             NSLog("start recording")
-            amplitudeDelta = 0.01
+            startWave()
             playSound("click3")
             recorder.startRecording()
         } else {
             NSLog("stop recording")
-            amplitudeDelta = -0.01
+            stopWave()
             recorder.stopRecording()
             playSound("click2")
         }
+    }
+    
+    func startWave() {
+        amplitudeDelta = 0.01
+        self.leftWaveView.waveColor = UIColor.red
+        self.rightWaveView.waveColor = UIColor.red
+    }
+    
+    func stopWave() {
+        amplitudeDelta = -0.01
+        self.leftWaveView.waveColor = UIColor.white
+        self.rightWaveView.waveColor = UIColor.white
     }
     
     func showText(_ text: String) {
@@ -131,8 +143,10 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     var amplitude:Float = 0
     var amplitudeDelta:Float = 0
     var amplitudeMultiplier:Float = 1
+    var newAmplitudeMultiplier:Float = 1
     
     internal func waveViewTick(_:Timer) {
+        self.amplitudeMultiplier += (newAmplitudeMultiplier - self.amplitudeMultiplier) * 0.2
         amplitude = Float.maximum(0, Float.minimum(amplitude + amplitudeDelta, 0.1))
         let value = CGFloat(amplitude * amplitudeMultiplier)
         self.leftWaveView.amplitude = value
@@ -154,8 +168,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
                 let length = Int(buffer.frameLength)
                 var avgValue: Float = 0
                 vDSP_meamgv(floatChannelData.pointee, stride, &avgValue, vDSP_Length(length))
-                let newAmplitudeMultiplier = 1 + avgValue * 100
-                self.amplitudeMultiplier += (newAmplitudeMultiplier - self.amplitudeMultiplier) * 0.2
+                self.newAmplitudeMultiplier = 1 + avgValue * 100
             }
         }
         try! engine.start()
