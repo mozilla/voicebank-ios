@@ -17,11 +17,13 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     var audioFilename: URL!
     var wsComm: WSComm!
     var sentenceKey: String = ""
+    var viewController: ViewController!
     
-    init(wsComm: WSComm!) {
+    init(wsComm: WSComm!, viewController: ViewController!) {
         super.init()
         self.wsComm = wsComm
         self.recordingSession = AVAudioSession.sharedInstance()
+        self.viewController = viewController
         
         do {
             try self.recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
@@ -54,7 +56,6 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
         do {
             self.audioRecorder = try AVAudioRecorder(url: self.audioFilename, settings: settings)
             self.audioRecorder.delegate = self
-            
         } catch {
             //finishRecording(success: false)
             NSLog("Error Recording")
@@ -85,10 +86,9 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            // show the toast with the counter
-            self.wsComm.uploadAudio(audioFile: self.audioFilename, sentenceKey: self.sentenceKey)
+            self.wsComm.uploadAudio(audioFile: self.audioFilename, sentenceKey: self.sentenceKey, completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
+                self.viewController.showRandomQuote()
+            })
         }
     }
-    
-    
 }
