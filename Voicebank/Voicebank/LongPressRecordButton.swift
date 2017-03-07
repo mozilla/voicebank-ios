@@ -30,6 +30,8 @@ import UIKit
 
 /// The delegate protocol of LongPressRecordButton.
 @objc public protocol LongPressRecordButtonDelegate {
+    // Tells the delegate that the button was dragged
+    func longPressRecordButtonDidDrag(_ button: LongPressRecordButton, gesture: UIPanGestureRecognizer, originPress: CGPoint)
     /// Tells the delegate that a long press has started.
     func longPressRecordButtonDidStartLongPress(_ button : LongPressRecordButton)
     /// Tells the delegate that a long press has finished.
@@ -45,8 +47,11 @@ import UIKit
 //================================================
 
 /// The LongPressRecordButton class.
-@IBDesignable open class LongPressRecordButton : UIControl {
+@IBDesignable open class LongPressRecordButton : UIControl, UIGestureRecognizerDelegate {
     
+    var shouldAllowPan: Bool = false
+    var originPress: CGPoint = CGPoint()
+
     /// The delegate of the LongPressRecordButton instance.
     open weak var delegate : LongPressRecordButtonDelegate?
     
@@ -167,7 +172,27 @@ import UIKit
         longPressRecognizer.minimumPressDuration = 0.3
         self.addGestureRecognizer(longPressRecognizer)
         addTarget(self, action: #selector(LongPressRecordButton.handleShortPress(_:)), for: UIControlEvents.touchUpInside)
+        
+        // drag
+        let panRec = UIPanGestureRecognizer(target: self, action: #selector(LongPressRecordButton.draggedView(gesture:)))
+        panRec.delegate = self
+        self.addGestureRecognizer(panRec)
+        
     }
+    
+    public func gestureRecognizer(_: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        // We only allow the (drag) gesture to continue if it is within a long press
+        if((gestureRecognizer is UIPanGestureRecognizer) && (shouldAllowPan == false)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     fileprivate func redraw() {
         ringLayer.lineWidth = ringWidth
@@ -188,10 +213,21 @@ import UIKit
         redraw()
     }
     
+    func draggedView(gesture: UIPanGestureRecognizer) {
+        delegate?.longPressRecordButtonDidDrag(self, gesture: gesture, originPress: originPress)
+    }
+    
     @objc fileprivate func handleLongPress(_ recognizer: UILongPressGestureRecognizer) {
+        let loc = recognizer.location(in: self)
         if (recognizer.state == .began) {
+            originPress = loc
             buttonPressed()
+        }
+        else if(recognizer.state == .changed){
+            shouldAllowPan = true
+            
         } else if (recognizer.state == .ended) {
+            shouldAllowPan = false
             buttonReleased()
         }
     }
