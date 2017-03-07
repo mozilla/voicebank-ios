@@ -18,6 +18,7 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     var wsComm: WSComm!
     var sentenceKey: String = ""
     var viewController: ViewController!
+    var recordingCanceled: Bool = false
     
     init(wsComm: WSComm!, viewController: ViewController!) {
         super.init()
@@ -66,7 +67,8 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
         self.audioRecorder.record()
     }
     
-    func stopRecording() {
+    func stopRecording(recordingCanceled: Bool) {
+        self.recordingCanceled = recordingCanceled
         self.audioRecorder.stop()
     }
     
@@ -85,10 +87,15 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            self.wsComm.uploadAudio(audioFile: self.audioFilename, sentenceKey: self.sentenceKey, completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
-                self.viewController.showRandomQuote()
-            })
+        if (!self.recordingCanceled){
+            if flag {
+                self.wsComm.uploadAudio(audioFile: self.audioFilename, sentenceKey: self.sentenceKey, completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
+                    self.viewController.showToast("Audio uploaded")
+                    self.viewController.showRandomQuote()
+                })
+            }
+        } else {
+            self.viewController.showToast("Recording Canceled")
         }
     }
 }

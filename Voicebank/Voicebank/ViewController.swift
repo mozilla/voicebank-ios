@@ -12,14 +12,15 @@ import Accelerate
 
 class ViewController: UIViewController, LongPressRecordButtonDelegate {
 
-    // @IBOutlet var recordButton: UIButton!
     @IBOutlet weak var recordButton: LongPressRecordButton!
     var recorder: Recorder!
     var engine:AVAudioEngine = AVAudioEngine()
     var audioPlayer:AVAudioPlayer!
     var wsComm : WSComm!
     var jsonSentences : Any?
+    var recordingCanceled : Bool = false
     
+    @IBOutlet weak var toastView: UILabel!
     @IBOutlet weak var leftWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var rightWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var textView: UITextView!
@@ -38,6 +39,12 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         // Center record button.
         let mid = self.view.bounds.width / 2.0
         recordButton.center = CGPoint(x: mid, y: recordButton.center.y)
+        
+        // align toast to the bottom
+        toastView.frame.origin.y = self.view.frame.size.height - 30
+        var newFrame = self.toastView.frame;
+        newFrame.size.width = self.view.bounds.width
+        toastView.frame = newFrame
         
         self.wsComm = WSComm()
         // first we download the sentences
@@ -67,10 +74,8 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     func viewSwipped(gesture: UIGestureRecognizer) {
         if gesture.view != nil {
             if ((gesture as! UISwipeGestureRecognizer).direction == UISwipeGestureRecognizerDirection.right) {
-                NSLog("text view swipped right")
                 showRandomQuote()
             } else {
-                NSLog("text view swipped left")
                 showRandomQuote()
             }
         }
@@ -82,11 +87,24 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
 
     func longPressRecordButtonDidStartLongPress(_ button: LongPressRecordButton) {
+        recordingCanceled = false
         recordTapped()
     }
     
     func longPressRecordButtonDidStopLongPress(_ button: LongPressRecordButton) {
         recordTapped()
+    }
+    
+    func cancelRecording(){
+        stopWave()
+    }
+    
+    func longPressRecordButtonDidDrag(_ button: LongPressRecordButton, gesture: UIPanGestureRecognizer, originPress: CGPoint){
+        let translation = gesture.translation(in: button)
+        let minDragToExitView = button.frame.height - originPress.y
+        if (translation.y > minDragToExitView) {
+            recordingCanceled = true
+        }
     }
     
     func showRandomQuote() {
@@ -110,7 +128,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         } else {
             NSLog("stop recording")
             stopWave()
-            recorder.stopRecording()
+            recorder.stopRecording(recordingCanceled: recordingCanceled)
             playSound("click2")
         }
     }
@@ -137,6 +155,25 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
             UIView.animate(withDuration: duration, animations: {
                 self.textView.alpha = 1
             })
+        }
+    }
+    
+    func showToast(_ text: String) {
+        let duration = 1.0
+        UIView.animate(withDuration: duration, animations: {
+            self.toastView.alpha = 0
+        })
+        {(finished) in
+            self.toastView.text = text
+            UIView.animate(withDuration: duration, animations: {
+                self.toastView.alpha = 1
+            })
+            {(finished) in
+                self.toastView.text = text
+                UIView.animate(withDuration: duration, animations: {
+                    self.toastView.alpha = 0
+                })
+            }
         }
     }
     
