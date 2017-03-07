@@ -40,6 +40,12 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         let mid = self.view.bounds.width / 2.0
         recordButton.center = CGPoint(x: mid, y: recordButton.center.y)
         
+        // align toast to the bottom
+        toastView.frame.origin.y = self.view.frame.size.height - 30
+        var newFrame = self.toastView.frame;
+        newFrame.size.width = self.view.bounds.width
+        toastView.frame = newFrame
+        
         self.wsComm = WSComm()
         // first we download the sentences
         self.wsComm.getSentences(completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
@@ -86,12 +92,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
     
     func longPressRecordButtonDidStopLongPress(_ button: LongPressRecordButton) {
-        if (!recordingCanceled){
-            recordTapped()
-        } else {
-            print("Recording canceled")
-            cancelRecording()
-        }
+        recordTapped()
     }
     
     func cancelRecording(){
@@ -127,7 +128,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         } else {
             NSLog("stop recording")
             stopWave()
-            recorder.stopRecording()
+            recorder.stopRecording(recordingCanceled: recordingCanceled)
             playSound("click2")
         }
     }
@@ -158,15 +159,21 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
     
     func showToast(_ text: String) {
-        let duration = 0.2
+        let duration = 1.0
         UIView.animate(withDuration: duration, animations: {
             self.toastView.alpha = 0
-        }) {
-            (finished) in
+        })
+        {(finished) in
             self.toastView.text = text
             UIView.animate(withDuration: duration, animations: {
                 self.toastView.alpha = 1
             })
+            {(finished) in
+                self.toastView.text = text
+                UIView.animate(withDuration: duration, animations: {
+                    self.toastView.alpha = 0
+                })
+            }
         }
     }
     
