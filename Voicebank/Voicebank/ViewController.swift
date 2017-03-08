@@ -108,13 +108,17 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
     
     func showRandomQuote() {
+        NSLog("showRandomQuote")
+
         if let dictionary = self.jsonSentences as? NSDictionary {
-            let sentenceKey = "s\(String(format: "%04d", Int(arc4random_uniform(UInt32(dictionary.count)))))"
-            if let sentence = dictionary[sentenceKey] as? String {
+            let sentenceid = Int(arc4random_uniform(UInt32(dictionary.count)))
+            print("inside dict. sentenceid", sentenceid)
+            if let sentence = dictionary[String(sentenceid)] as? String {
+                NSLog("displaying a new sentence")
                 // display the sentence
                 showText(sentence)
-                // set the sentencekey to the recorder
-                recorder.sentenceKey = sentenceKey
+                // now we generate sentence hash an pass it to the recorder
+                recorder.sentence = sentence
             }
         }
     }
