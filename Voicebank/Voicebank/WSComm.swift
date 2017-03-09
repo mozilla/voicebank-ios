@@ -11,7 +11,7 @@ import Foundation
 class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
    
     var responseData = NSMutableData()
-    let webserviceHostname = "https://murmur.vaani.io"
+    let webserviceEndpoint = "https://murmur.vaani.io"
     override init(){
         
     }
@@ -20,7 +20,7 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
         do {
             let data: NSData = try NSData(contentsOfFile: audioFile.path)
             let sentenceHash = sentence.digest(length: CC_SHA1_DIGEST_LENGTH, gen: {(data, len, md) in CC_SHA1(data,len,md)})
-            let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceHostname)/upload/\(sentenceHash)/") as! URL)
+            let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/upload/\(sentenceHash)/") as! URL)
             request.httpMethod = "POST"
             request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
             request.setValue("audio/mp4a", forHTTPHeaderField: "content-type")
@@ -36,7 +36,7 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
     }
     
     func getSentences(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceHostname)/sentences.json") as! URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/sentences.json") as! URL)
         request.httpMethod = "GET"
         request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
         let configuration = URLSessionConfiguration.default

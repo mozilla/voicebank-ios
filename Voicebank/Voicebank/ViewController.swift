@@ -24,6 +24,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     @IBOutlet weak var leftWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var rightWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var cancelView : UILabel!
     
     var timer:Timer?
     
@@ -39,6 +40,9 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         // Center record button.
         let mid = self.view.bounds.width / 2.0
         recordButton.center = CGPoint(x: mid, y: recordButton.center.y)
+        
+        // Center cancel view
+        cancelView.center = CGPoint(x: mid, y: recordButton.center.y)
         
         // align toast to the bottom
         toastView.frame.origin.y = self.view.frame.size.height - 30
@@ -100,21 +104,20 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     }
     
     func longPressRecordButtonDidDrag(_ button: LongPressRecordButton, gesture: UIPanGestureRecognizer, originPress: CGPoint){
-        let translation = gesture.translation(in: button)
-        let minDragToExitView = button.frame.height - originPress.y
-        if (translation.y > minDragToExitView) {
+        let gestureLocationInView = gesture.location(in: self.view)
+        if (!recordButton.frame.contains(gestureLocationInView))  {
+            showCancelView(display: false)
             recordingCanceled = true
+        } else {
+            showCancelView(display: true)
+            recordingCanceled = false
         }
     }
     
     func showRandomQuote() {
-        NSLog("showRandomQuote")
-
         if let dictionary = self.jsonSentences as? NSDictionary {
             let sentenceid = Int(arc4random_uniform(UInt32(dictionary.count)))
-            print("inside dict. sentenceid", sentenceid)
             if let sentence = dictionary[String(sentenceid)] as? String {
-                NSLog("displaying a new sentence")
                 // display the sentence
                 showText(sentence)
                 // now we generate sentence hash an pass it to the recorder
@@ -125,12 +128,10 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     
     @IBAction func recordTapped() {
         if !self.recorder.isRecording() {
-            NSLog("start recording")
             startWave()
             playSound("click3")
             recorder.startRecording()
         } else {
-            NSLog("stop recording")
             stopWave()
             recorder.stopRecording(recordingCanceled: recordingCanceled)
             playSound("click2")
@@ -158,6 +159,27 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
             self.textView.text = text
             UIView.animate(withDuration: duration, animations: {
                 self.textView.alpha = 1
+            })
+        }
+    }
+    
+    func showCancelView(display: Bool){
+        if (display){
+            cancelView.isHidden = true
+        } else {
+            cancelView.isHidden = false
+            cancelView.alpha = 1
+        }
+    }
+    
+    func fadeCancel(){
+        let duration = 2.0
+        UIView.animate(withDuration: duration, animations: {
+            self.cancelView.alpha = 1
+        }) {
+            (finished) in
+            UIView.animate(withDuration: duration, animations: {
+                self.cancelView.alpha = 0
             })
         }
     }

@@ -96,6 +96,7 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
             }
         } else {
             self.viewController.showToast("Recording Canceled")
+            self.viewController.fadeCancel()
         }
     }
 }
