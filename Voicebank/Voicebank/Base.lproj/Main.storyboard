@@ -25,15 +25,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2r-3a-6rg">
                                 <rect key="frame" x="16" y="50" width="382" height="174"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Loading ...">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="Avenir-Heavy"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="pD4-1g-Bm8" appends="YES" id="n4s-MV-hvA"/>
@@ -52,7 +44,7 @@
                             </view>
                             <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TWL-9j-mVC" customClass="SwiftSiriWaveformView" customModule="Voicebank" customModuleProvider="target">
                                 <rect key="frame" x="160" y="368" width="254" height="300"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -119,6 +111,7 @@
                         <outlet property="rightWaveView" destination="TWL-9j-mVC" id="1sE-4K-XwV"/>
                         <outlet property="textView" destination="S2r-3a-6rg" id="4qM-BJ-7rC"/>
                         <outlet property="toastView" destination="47U-g5-jHc" id="5Op-pw-qd0"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="oOS-Yu-NNw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

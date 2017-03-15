@@ -9,8 +9,10 @@
 import UIKit
 import AVFoundation
 import Accelerate
+import Instructions
 
-class ViewController: UIViewController, LongPressRecordButtonDelegate {
+
+class ViewController: UIViewController, LongPressRecordButtonDelegate, CoachMarksControllerDataSource, CoachMarksControllerDelegate {
 
     var recorder: Recorder!
     var engine: AVAudioEngine = AVAudioEngine()
@@ -18,7 +20,8 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     var jsonSentences: Any?
     var recordingCanceled: Bool = false
     var dataViewController: UIViewController? = nil
-    
+    let coachMarksController = CoachMarksController()
+
     @IBOutlet weak var labelCount: UILabel!
     @IBOutlet weak var recordButton: LongPressRecordButton!
     @IBOutlet weak var toastView: UILabel!
@@ -29,11 +32,31 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     
     var timer:Timer?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (UserDefaults.standard.integer(forKey: "instructionsShown") == 0) {
+            self.coachMarksController.startOn(self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if (UserDefaults.standard.integer(forKey: "instructionsShown") == 0) {
+            self.coachMarksController.stop(immediately: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         startWaveView()
         recordButton.delegate = self
+        
+        if (UserDefaults.standard.integer(forKey: "instructionsShown") == 0) {
+            self.coachMarksController.dataSource = self
+        }
         
         // Flip the view around.
         self.leftWaveView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
@@ -76,12 +99,18 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
+        let swipeLeftTV = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
+        swipeLeftTV.direction = UISwipeGestureRecognizerDirection.left
+        self.textView.addGestureRecognizer(swipeLeftTV)
         
         // and then to the right
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
-        
+        let swipeRightTV = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
+        swipeRightTV.direction = UISwipeGestureRecognizerDirection.right
+        self.textView.addGestureRecognizer(swipeRightTV)
+
         // create DataViewController if required
         if  UserDefaults.standard.string(forKey: "userDetails") == nil {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -90,6 +119,8 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         }
         
         // display the current total of recordings
+        textView.font =  UIFont(name: "Avenir Heavy", size: 20)
+        textView.textColor = UIColor.white
         self.loadRecording()
     }
     
@@ -279,5 +310,88 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "totalRecordings") + 1, forKey: "totalRecordings")
         self.loadRecording()
     }
+    
+    // COACH DELEGATES
+    
+    /// Asks for the views defining the coach mark that will be displayed in
+    /// the given nth place. The arrow view is optional. However, if you provide
+    /// one, you are responsible for supplying the proper arrow orientation.
+    /// The expected orientation is available through
+    /// `coachMark.arrowOrientation` and was computed beforehand.
+    ///
+    /// - Parameter coachMarksController: the coach mark controller requesting
+    ///                                   the information.
+    /// - Parameter coachMarkViewsForIndex: the index referring to the nth place.
+    /// - Parameter coachMark: the coach mark meta data.
+    ///
+    /// - Returns: a tuple packaging the body component and the arrow component.
+    public func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+        
+        switch (index){
+            case 0:
+                coachViews.bodyView.hintLabel.text = "Here you'll see the sentences to be spoken. You can swipe left or right to change it."
+                coachViews.bodyView.nextLabel.text = "Ok"
+            case 1:
+                coachViews.bodyView.hintLabel.text = "This is the record button. Hold it until you hear a short bip and then start speaking the sentence. When you finish, just release the button."
+                coachViews.bodyView.nextLabel.text = "Ok"
+            case 2:
+                coachViews.bodyView.hintLabel.text = "If you move your finger away from the button you will see this little X. This means if you release your finger at this moment, the recording will be canceled."
+                coachViews.bodyView.nextLabel.text = "Ok"
+                cancelView.alpha = 1.0
+            case 3:
+                coachViews.bodyView.hintLabel.text = "Here you have the total of sentences that still need to be submitted to reach your goal. Just tap Ok and start to contribute!"
+                coachViews.bodyView.nextLabel.text = "Ok"
+                UserDefaults.standard.setValue(1, forKey: "instructionsShown")
+                cancelView.alpha = 0.0
+            default:
+                self.coachMarksController.stop(immediately: true)
+                cancelView.alpha = 0.0
+        }
+
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+    
+    /// Asks for the metadata of the coach mark that will be displayed in the
+    /// given nth place. All `CoachMark` metadata are optional or filled with
+    /// sensible defaults. You are not forced to provide the `cutoutPath`.
+    /// If you don't the coach mark will be dispayed at the bottom of the screen,
+    /// without an arrow.
+    ///
+    /// - Parameter coachMarksController: the coach mark controller requesting
+    ///                                   the information.
+    /// - Parameter coachMarkViewsForIndex: the index referring to the nth place.
+    ///
+    /// - Returns: the coach mark metadata.
+    public func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        
+        switch (index){
+            case 0:
+                return coachMarksController.helper.makeCoachMark(for: self.textView)
+            case 1:
+                return coachMarksController.helper.makeCoachMark(for: self.recordButton)
+            case 2:
+                return coachMarksController.helper.makeCoachMark(for: self.recordButton)
+            case 3:
+                return coachMarksController.helper.makeCoachMark(for: self.labelCount)
+            default:
+                return coachMarksController.helper.makeCoachMark(for: self.view)
+            }
+    }
+    
+    /// Asks for the number of coach marks to display.
+    ///
+    /// - Parameter coachMarksController: the coach mark controller requesting
+    ///                                   the information.
+    ///
+    /// - Returns: the number of coach marks to display.
+    public func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 5
+    }
+
+    
+    
 }
 

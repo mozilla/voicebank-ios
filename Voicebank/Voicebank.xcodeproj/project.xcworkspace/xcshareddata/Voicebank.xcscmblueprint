@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B2BC9621FAF28FFF20F04C54554733304C43846B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B2BC9621FAF28FFF20F04C54554733304C43846B" : 9223372036854775807,
+    "15146749308F7667D8B3B84ACEE4A7A838940EE0" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9F136700-4AFA-4688-A3AF-08CA5918413E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B2BC9621FAF28FFF20F04C54554733304C43846B" : "voicebank-ios\/",
+    "15146749308F7667D8B3B84ACEE4A7A838940EE0" : "Instructions\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Voicebank",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Voicebank\/Voicebank.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ephread\/Instructions",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "15146749308F7667D8B3B84ACEE4A7A838940EE0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mozilla\/voicebank-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B2BC9621FAF28FFF20F04C54554733304C43846B"
+    }
+  ]
+}
