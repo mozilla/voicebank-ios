@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="twG-zX-ep7">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Voicebank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="recordings" id="BYZ-38-t0r" customClass="ViewController" customModule="Voicebank" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -93,7 +94,7 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN7-v3-XRb">
                                 <rect key="frame" x="120" y="409" width="80" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="52"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="43"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
@@ -114,6 +115,154 @@
                 <swipeGestureRecognizer direction="left" id="pD4-1g-Bm8"/>
             </objects>
             <point key="canvasLocation" x="50.625" y="42.25352112676056"/>
+        </scene>
+        <!--Data View Controller-->
+        <scene sceneID="Pgm-zm-JPd">
+            <objects>
+                <viewController storyboardIdentifier="data" id="iqy-9A-Wxg" customClass="DataViewController" customModule="Voicebank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cpa-4r-edW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ras-Ws-gJp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fJ1-oh-HXY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sV-iM-n0b">
+                                <rect key="frame" x="197" y="502" width="73" height="46"/>
+                                <color key="backgroundColor" red="0.24893435116112322" green="0.58604429140308789" blue="0.20338474069608578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="73" id="MlG-5o-Qbz"/>
+                                    <constraint firstAttribute="height" constant="46" id="cuA-Uh-tgC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptAgreement" destination="twG-zX-ep7" eventType="touchDown" id="Ty4-3C-Iah"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rc5-KQ-olm">
+                                <rect key="frame" x="0.0" y="236" width="320" height="216"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7U-sy-abT">
+                                <rect key="frame" x="25" y="51" width="270" height="164"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Tell us a Little About You.   Please choose the information below to help categorize your voice">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="22" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgl-90-fZ7">
+                                <rect key="frame" x="57" y="502" width="73" height="46"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="elc-fU-z41"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="73" id="idi-xs-fzo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Ignore">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptAgreement" destination="twG-zX-ep7" eventType="touchDown" id="EHd-b5-hcd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rc5-KQ-olm" secondAttribute="trailing" id="5gh-6w-bJD"/>
+                            <constraint firstItem="rc5-KQ-olm" firstAttribute="centerX" secondItem="6sV-iM-n0b" secondAttribute="centerX" constant="-73.5" id="Dcc-Za-cln"/>
+                            <constraint firstItem="vgl-90-fZ7" firstAttribute="baseline" secondItem="6sV-iM-n0b" secondAttribute="baseline" id="Fxv-0X-ZtI"/>
+                            <constraint firstItem="rc5-KQ-olm" firstAttribute="leading" secondItem="fJ1-oh-HXY" secondAttribute="leading" id="Ls6-0A-dyg"/>
+                            <constraint firstItem="rc5-KQ-olm" firstAttribute="top" secondItem="cpa-4r-edW" secondAttribute="bottom" constant="216" id="aDK-eO-WHv"/>
+                            <constraint firstItem="Q7U-sy-abT" firstAttribute="centerX" secondItem="rc5-KQ-olm" secondAttribute="centerX" id="aYw-HE-gpl"/>
+                            <constraint firstItem="rc5-KQ-olm" firstAttribute="top" secondItem="Q7U-sy-abT" secondAttribute="bottom" constant="21" id="apO-dX-MA7"/>
+                            <constraint firstItem="6sV-iM-n0b" firstAttribute="centerX" secondItem="fJ1-oh-HXY" secondAttribute="centerX" constant="73.5" id="bUE-l1-as3"/>
+                            <constraint firstItem="Q7U-sy-abT" firstAttribute="top" secondItem="cpa-4r-edW" secondAttribute="bottom" constant="31" id="e7e-lN-aZd"/>
+                            <constraint firstItem="6sV-iM-n0b" firstAttribute="leading" secondItem="vgl-90-fZ7" secondAttribute="trailing" constant="67" id="eCZ-zP-AlK"/>
+                            <constraint firstItem="Q7U-sy-abT" firstAttribute="leading" secondItem="fJ1-oh-HXY" secondAttribute="leadingMargin" constant="9" id="wLA-tl-VND"/>
+                            <constraint firstItem="ras-Ws-gJp" firstAttribute="top" secondItem="6sV-iM-n0b" secondAttribute="bottom" constant="20" id="xR8-5e-g2w"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="rc5-KQ-olm" id="F6r-xo-fDc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCi-R7-ao5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="783.95802098950526"/>
+        </scene>
+        <!--Agreement Viewcontroller-->
+        <scene sceneID="SJx-cN-wnA">
+            <objects>
+                <viewController id="twG-zX-ep7" customClass="AgreementViewcontroller" customModule="Voicebank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aao-ep-wL1"/>
+                        <viewControllerLayoutGuide type="bottom" id="G0Q-LI-LCF"/>
+                    </layoutGuides>
+                    <view key="view" hidden="YES" contentMode="scaleToFill" id="4VQ-Lj-yZo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kga-vJ-zAO">
+                                <rect key="frame" x="123.5" y="502" width="73" height="46"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="h1W-iA-Mpa"/>
+                                    <constraint firstAttribute="width" constant="73" id="q8A-Cl-hap"/>
+                                </constraints>
+                                <state key="normal" title="I agree">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptAgreement" destination="twG-zX-ep7" eventType="touchDown" id="XpQ-au-ksy"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="agreement" animates="NO" modalTransitionStyle="crossDissolve" id="blB-Kh-tZo"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXl-eF-eoY">
+                                <rect key="frame" x="16" y="46" width="286.5" height="406"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">This applicaton is used by Mozilla engineering to collect speech samples to test and train our speech recognition engine and develop or improve other new products or services. We may also share these voice samples with third parties who are researching topics related to speech recognition or speech synthesis.
+
+By clicking the "I agree" button below, you are agreeing to donate audio recordings of your voice and to place them in the public domain. This means that you agree to waive all rights to the recordings worldwide under copyright and database law, including moral and publicity rights and all related and neighboring rights.</string>
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="13" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="kga-vJ-zAO" firstAttribute="top" secondItem="TXl-eF-eoY" secondAttribute="bottom" constant="50" id="B7l-HO-fpr"/>
+                            <constraint firstItem="kga-vJ-zAO" firstAttribute="centerX" secondItem="TXl-eF-eoY" secondAttribute="centerX" id="MTV-dU-Fkk"/>
+                            <constraint firstItem="kga-vJ-zAO" firstAttribute="centerX" secondItem="4VQ-Lj-yZo" secondAttribute="centerX" id="XWp-CJ-qei"/>
+                            <constraint firstItem="TXl-eF-eoY" firstAttribute="leading" secondItem="4VQ-Lj-yZo" secondAttribute="leadingMargin" id="hi3-DD-WQX"/>
+                            <constraint firstAttribute="bottom" secondItem="kga-vJ-zAO" secondAttribute="bottom" constant="20" symbolic="YES" id="pQA-cI-jgG"/>
+                            <constraint firstItem="TXl-eF-eoY" firstAttribute="top" secondItem="Aao-ep-wL1" secondAttribute="bottom" constant="26" id="s1f-fz-kJH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="agreeButton" destination="kga-vJ-zAO" id="Mez-hm-o9U"/>
+                        <outlet property="disclaimerView" destination="TXl-eF-eoY" id="6jy-wt-DNe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BgX-Iv-L2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823.125" y="786.25"/>
         </scene>
     </scenes>
 </document>
