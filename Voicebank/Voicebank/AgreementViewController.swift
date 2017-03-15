@@ -31,7 +31,6 @@ class AgreementViewcontroller: UIViewController {
     @IBAction func acceptAgreement() {
         let prefs = UserDefaults.standard
         prefs.setValue(1, forKey: "agreementAccepted")
-        self.segueToRecordingView()
     }
     
 }

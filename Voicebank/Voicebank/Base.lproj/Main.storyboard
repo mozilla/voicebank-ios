@@ -140,11 +140,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="acceptAgreement" destination="twG-zX-ep7" eventType="touchDown" id="Ty4-3C-Iah"/>
+                                    <action selector="submitData" destination="iqy-9A-Wxg" eventType="touchDown" id="WVU-zO-EYG"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rc5-KQ-olm">
-                                <rect key="frame" x="0.0" y="236" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="220" width="320" height="216"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7U-sy-abT">
@@ -172,7 +172,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="acceptAgreement" destination="twG-zX-ep7" eventType="touchDown" id="EHd-b5-hcd"/>
+                                    <action selector="ignoreDetails" destination="iqy-9A-Wxg" eventType="touchDown" id="4dl-Ac-ucG"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="recording" id="nqD-kG-8hO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -182,9 +183,9 @@
                             <constraint firstItem="rc5-KQ-olm" firstAttribute="centerX" secondItem="6sV-iM-n0b" secondAttribute="centerX" constant="-73.5" id="Dcc-Za-cln"/>
                             <constraint firstItem="vgl-90-fZ7" firstAttribute="baseline" secondItem="6sV-iM-n0b" secondAttribute="baseline" id="Fxv-0X-ZtI"/>
                             <constraint firstItem="rc5-KQ-olm" firstAttribute="leading" secondItem="fJ1-oh-HXY" secondAttribute="leading" id="Ls6-0A-dyg"/>
-                            <constraint firstItem="rc5-KQ-olm" firstAttribute="top" secondItem="cpa-4r-edW" secondAttribute="bottom" constant="216" id="aDK-eO-WHv"/>
+                            <constraint firstItem="rc5-KQ-olm" firstAttribute="top" secondItem="cpa-4r-edW" secondAttribute="bottom" constant="200" id="aDK-eO-WHv"/>
                             <constraint firstItem="Q7U-sy-abT" firstAttribute="centerX" secondItem="rc5-KQ-olm" secondAttribute="centerX" id="aYw-HE-gpl"/>
-                            <constraint firstItem="rc5-KQ-olm" firstAttribute="top" secondItem="Q7U-sy-abT" secondAttribute="bottom" constant="21" id="apO-dX-MA7"/>
+                            <constraint firstItem="rc5-KQ-olm" firstAttribute="top" secondItem="Q7U-sy-abT" secondAttribute="bottom" constant="5" id="apO-dX-MA7"/>
                             <constraint firstItem="6sV-iM-n0b" firstAttribute="centerX" secondItem="fJ1-oh-HXY" secondAttribute="centerX" constant="73.5" id="bUE-l1-as3"/>
                             <constraint firstItem="Q7U-sy-abT" firstAttribute="top" secondItem="cpa-4r-edW" secondAttribute="bottom" constant="31" id="e7e-lN-aZd"/>
                             <constraint firstItem="6sV-iM-n0b" firstAttribute="leading" secondItem="vgl-90-fZ7" secondAttribute="trailing" constant="67" id="eCZ-zP-AlK"/>
@@ -193,12 +194,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ignoreButton" destination="vgl-90-fZ7" id="avv-hc-J3I"/>
                         <outlet property="pickerView" destination="rc5-KQ-olm" id="F6r-xo-fDc"/>
+                        <outlet property="submitButton" destination="6sV-iM-n0b" id="Jwm-dZ-yDg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCi-R7-ao5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="783.95802098950526"/>
+            <point key="canvasLocation" x="-188" y="864"/>
         </scene>
         <!--Agreement Viewcontroller-->
         <scene sceneID="SJx-cN-wnA">
@@ -265,4 +268,7 @@ By clicking the "I agree" button below, you are agreeing to donate audio recordi
             <point key="canvasLocation" x="823.125" y="786.25"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nqD-kG-8hO"/>
+    </inferredMetricsTieBreakers>
 </document>
