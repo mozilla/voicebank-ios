@@ -17,9 +17,9 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     var wsComm: WSComm!
     var jsonSentences: Any?
     var recordingCanceled: Bool = false
-    var totalRecordings = 0
     var dataViewController: UIViewController? = nil
     
+    @IBOutlet weak var labelCount: UILabel!
     @IBOutlet weak var recordButton: LongPressRecordButton!
     @IBOutlet weak var toastView: UILabel!
     @IBOutlet weak var leftWaveView: SwiftSiriWaveformView!
@@ -81,6 +81,9 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
             dataViewController = mainStoryboard.instantiateViewController(withIdentifier: "data") as UIViewController
             (dataViewController as! DataViewController).startPickers()
         }
+        
+        // display the current total of recordings
+        self.loadRecording()
     }
     
     func switchToDataVC() {
@@ -126,14 +129,13 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         }
     }
     
-    func shouldAskInfo() -> Bool{
-        if (totalRecordings > 5) && (UserDefaults.standard.string(forKey: "userDetails") == nil) {
+    func shouldAskInfo() -> Bool {
+        if (UserDefaults.standard.integer(forKey: "totalRecordings") > 5) && (UserDefaults.standard.string(forKey: "userDetails") == nil) {
             return true
         } else {
             return false
         }
     }
-    
     
     func showRandomQuote() {
         if (self.shouldAskInfo()){
@@ -155,7 +157,6 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
             startWave()
             recorder.playSound("click3")
             recorder.startRecording()
-            totalRecordings += 1
         } else {
             stopWave()
             recorder.stopRecording(recordingCanceled: recordingCanceled)
@@ -263,5 +264,13 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         try! engine.start()
     }
 
+    func loadRecording() {
+        labelCount.text = String(100 - UserDefaults.standard.integer(forKey: "totalRecordings"))
+    }
+    
+    func countRecording() {
+        UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "totalRecordings") + 1, forKey: "totalRecordings")
+        self.loadRecording()
+    }
 }
 

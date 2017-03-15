@@ -13,11 +13,9 @@ class AgreementViewcontroller: UIViewController {
 
     @IBOutlet weak var agreeButton : UIButton!
     @IBOutlet weak var disclaimerView : UITextView!
-    let prefs = UserDefaults.standard
-    
+
     override func viewDidAppear(_ animated: Bool) {
-        if prefs.string(forKey: "agreementAccepted") != nil {
-            print(prefs.string(forKey: "agreementAccepted")!)
+        if UserDefaults.standard.string(forKey: "agreementAccepted") != nil {
             self.segueToRecordingView()
         } else {
             self.view.isHidden = false
@@ -29,8 +27,7 @@ class AgreementViewcontroller: UIViewController {
     }
     
     @IBAction func acceptAgreement() {
-        let prefs = UserDefaults.standard
-        prefs.setValue(1, forKey: "agreementAccepted")
+        UserDefaults.standard.setValue(1, forKey: "agreementAccepted")
     }
     
 }
