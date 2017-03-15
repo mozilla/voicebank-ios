@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
    
@@ -24,7 +25,7 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
             request.httpMethod = "POST"
             request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
             request.setValue("audio/mp4a", forHTTPHeaderField: "content-type")
-            request.setValue(UUID().uuidString, forHTTPHeaderField: "uid")
+            request.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "uid")
             request.setValue(sentence, forHTTPHeaderField: "sentence")
             let configuration = URLSessionConfiguration.default
             let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
@@ -33,6 +34,20 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
         } catch let error as NSError{
             print("Error: \(error)")
         }
+    }
+    
+    func uploadInfo(gender: String, age: String, language: String) {
+        let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/data/ios/") as! URL)
+        request.httpMethod = "GET"
+        request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
+        request.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "id")
+        request.setValue(gender, forHTTPHeaderField: "gender")
+        request.setValue(age, forHTTPHeaderField: "age")
+        request.setValue(language, forHTTPHeaderField: "langs1")
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request as URLRequest)
+        task.resume()
     }
     
     func getSentences(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {

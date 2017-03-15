@@ -19,6 +19,8 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     var sentence: String = ""
     var viewController: ViewController!
     var recordingCanceled: Bool = false
+    var audioPlayer:AVAudioPlayer!
+
     
     init(wsComm: WSComm!, viewController: ViewController!) {
         super.init()
@@ -99,4 +101,20 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
             self.viewController.fadeCancel()
         }
     }
+    
+    func playSound(_ sound: String) {
+        let audioFilePath = Bundle.main.path(forResource: sound, ofType: "wav")
+        if audioFilePath != nil {
+            let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl)
+                audioPlayer.play()
+            } catch {
+                print("Error Playing Audio Clip")
+            }
+        } else {
+            print("Audio file is not found")
+        }
+    }
+    
 }

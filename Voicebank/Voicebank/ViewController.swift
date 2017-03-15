@@ -12,14 +12,15 @@ import Accelerate
 
 class ViewController: UIViewController, LongPressRecordButtonDelegate {
 
-    @IBOutlet weak var recordButton: LongPressRecordButton!
     var recorder: Recorder!
-    var engine:AVAudioEngine = AVAudioEngine()
-    var audioPlayer:AVAudioPlayer!
-    var wsComm : WSComm!
-    var jsonSentences : Any?
-    var recordingCanceled : Bool = false
+    var engine: AVAudioEngine = AVAudioEngine()
+    var wsComm: WSComm!
+    var jsonSentences: Any?
+    var recordingCanceled: Bool = false
+    var totalRecordings = 0
+    var dataViewController: UIViewController? = nil
     
+    @IBOutlet weak var recordButton: LongPressRecordButton!
     @IBOutlet weak var toastView: UILabel!
     @IBOutlet weak var leftWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var rightWaveView: SwiftSiriWaveformView!
@@ -73,6 +74,17 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.viewSwipped(gesture:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
+        
+        // create DataViewController if required
+        if  UserDefaults.standard.string(forKey: "userDetails") == nil {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            dataViewController = mainStoryboard.instantiateViewController(withIdentifier: "data") as UIViewController
+            (dataViewController as! DataViewController).startPickers()
+        }
+    }
+    
+    func switchToDataVC() {
+        self.present(dataViewController!, animated: true, completion: nil)
     }
     
     func viewSwipped(gesture: UIGestureRecognizer) {
@@ -114,7 +126,19 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         }
     }
     
+    func shouldAskInfo() -> Bool{
+        if (totalRecordings > 1) && (UserDefaults.standard.string(forKey: "userDetails") == nil) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    
     func showRandomQuote() {
+        if (self.shouldAskInfo()){
+            switchToDataVC()
+        }
         if let dictionary = self.jsonSentences as? NSDictionary {
             let sentenceid = Int(arc4random_uniform(UInt32(dictionary.count)))
             if let sentence = dictionary[String(sentenceid)] as? String {
@@ -129,12 +153,13 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     @IBAction func recordTapped() {
         if !self.recorder.isRecording() {
             startWave()
-            playSound("click3")
+            recorder.playSound("click3")
             recorder.startRecording()
+            totalRecordings += 1
         } else {
             stopWave()
             recorder.stopRecording(recordingCanceled: recordingCanceled)
-            playSound("click2")
+            recorder.playSound("click2")
         }
     }
     
@@ -236,20 +261,6 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         }
         try! engine.start()
     }
-    
-    func playSound(_ sound: String) {
-        let audioFilePath = Bundle.main.path(forResource: sound, ofType: "wav")
-        if audioFilePath != nil {
-            let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
-            do {
-                try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl)
-                audioPlayer.play()
-            } catch {
-                print("Error Playing Audio Clip")
-            }
-        } else {
-            print("Audio file is not found")
-        }
-    }
+
 }
 

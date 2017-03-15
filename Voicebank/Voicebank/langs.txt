@@ -1,0 +1,346 @@
+Language
+Abaza
+Abenaki 
+Abkhaz 
+Adangme 
+Adangbe 
+Adyghe 
+Afar 
+Afrikaans 
+Ainu 
+Ajië 
+Akan 
+Albanian 
+Aleut 
+Amdang 
+Amharic 
+Ancient Egyptian Language 
+Angika 
+Apache 
+Arabic 
+Aragonese 
+Aramaic 
+Arapaho 
+Armenian 
+Armenian (Eastern) 
+Armenian (Western) 
+Arrernte 
+Assamese 
+Asturian 
+Avar 
+Avestan 
+Aymara 
+Äynu 
+Azerbaijani 
+Baga 
+Bai 
+Balinese 
+Balti 
+Bambara 
+Bantu 
+Basa
+Bashkir 
+Basque 
+Bassa 
+Batak 
+Belarusian 
+Bemba 
+Bengali 
+Berber 
+Berta 
+Bhojpuri 
+Bislama 
+Blackfoot 
+Bodo 
+Bosnian 
+Brazilian Portuguese 
+Breton 
+Buginese 
+Buhid 
+Bulgarian 
+Burmese 
+Cahuilla 
+Cantonese 
+Carrier 
+Catalan 
+Cayuga 
+Cebuano 
+Chamorro 
+Chechen 
+Cherokee 
+Chewa 
+Cheyenne 
+Chhattisgarhi 
+Chickasaw 
+Chinese 
+Chinese (Classical) 
+Chipewyan 
+Choctaw 
+Chuvash 
+Cimbrian 
+Comanche 
+Coptic 
+Cornish 
+Corsican 
+Cree 
+Croatian 
+Cupeño 
+Czech 
+Dakhini 
+Dakota 
+Dalecarlian 
+Danish 
+Dargwa 
+Dari 
+Dhivehi 
+Drehu 
+Dungan 
+Dutch 
+Dzongkha 
+Egyptian Arabic 
+English 
+Erzya 
+Esperanto 
+Estonian 
+Evenki 
+Ewe 
+Eyak 
+Faroese 
+Fijian 
+Fiji Hindi 
+Filipino 
+Finnish 
+Fon 
+French 
+Frisian (North) 
+Frisian (Saterland) 
+Frisian (West) 
+Friulian 
+Fula 
+Fur 
+Ga 
+Galician 
+Gan 
+Ge'ez 
+Georgian 
+German 
+Gikuyu 
+Gilbertese 
+Godoberi 
+Greek 
+Greenlandic 
+Guaraní 
+Gujarati 
+Gumuz 
+Gurung 
+Gwich'in 
+Haida 
+Hainanese 
+Haitian Creole
+Hakka 
+Harari 
+Hausa 
+Hawaiian 
+Hebrew 
+Herero 
+Himba 
+Hindi 
+Hindustani 
+Hiri Motu 
+Hmong 
+Hopi 
+Hungarian 
+Icelandic 
+Ido 
+Igbo 
+Ik 
+Ilocano 
+Indonesian 
+Ingush 
+Interlingua 
+Inuktitut 
+Inupiat 
+Irish 
+Isthmus Nahuatl 
+Italian 
+Japanese 
+Javanese 
+Judaeo
+Jutish 
+Jèrriais 
+Kabardian 
+Kabyle 
+Kaingang 
+Kannada 
+Kanuri 
+Karakalpak 
+Karamojong 
+Karelian 
+Kashmiri 
+Kashubian 
+Kazakh 
+Kelantanese Malay 
+Kendeje 
+Khakas 
+Khmer 
+Khoekhoe 
+Khowar 
+Kinyarwanda 
+Kiribati 
+Konkani 
+Korean 
+Kuliak 
+Kumyk 
+Kurdish 
+Kutchi 
+Kwadi 
+Ladakhi 
+Ladin 
+Lakota 
+Lao 
+Latin language 
+Latvian 
+Laz 
+Leonese 
+Lepcha 
+Limbu 
+Limburgish 
+Lingala 
+Lisu 
+Lithuanian 
+Livonian 
+Low German 
+Low Prussian Dialect 
+Luba
+Luganda 
+Luiseño 
+Luo 
+Luri 
+Luxembourgish 
+Maasai 
+Macedonian 
+Magahi 
+Magar 
+Maithili 
+Makassarese 
+Malay 
+Malayalam 
+Maltese 
+Manchu 
+Mandarin 
+Manx 
+Marathi 
+Marshallese 
+Masalit 
+Meitei 
+Miami
+Michoacán Nahuatl 
+Min 
+Min Bei 
+Min Dong 
+Min Nan 
+Min Zhong 
+Mon 
+Mongolian 
+Muscogee Creek 
+Musgu 
+Muskum 
+Māori 
+Nagumi 
+Nahuatl 
+Navajo 
+Ndyuka 
+Nepal Bhasa 
+Nepali 
+Ngbee 
+Northern Thai 
+Norwegian 
+Nuosu 
+Nyangia 
+Occidental 
+Occitan 
+Ojibwe 
+Okinawan Japanese 
+Old Church Slavonic 
+Old English 
+Omotik 
+Odia 
+Pahari 
+Palula 
+Pattani Malay 
+Persian 
+Phoenician 
+Piman 
+Pipil 
+Pitjantjatjara 
+Plautdietsch 
+Polish 
+Portuguese 
+Punjabi language 
+Pu
+Raga 
+Rajasthani 
+Romani 
+Romanian 
+Romansh 
+Russian 
+Rusyn 
+Ruthenian
+Sami 
+SamoanGagana Sāmoa
+Sanskrit 
+Sardinian 
+Saurashtra 
+Scots 
+Scottish Gaelic 
+Serbian 
+Shan 
+Shanghaiese 
+Sherpa language 
+Shona 
+Sicilian 
+Sikkimese 
+Sindhi 
+Sinhala 
+Slovak 
+Slovene 
+Somali 
+Sotho 
+Spanish 
+Stellingwarfs 
+Sundanese 
+Swahili 
+Swedish 
+Swiss German 
+Sylheti 
+Tagalog 
+Tahitian 
+Turkish 
+Tai Dam 
+Tai Khün 
+Tai Lü 
+Tai Nüa 
+Tamang 
+Tamil 
+Tangut 
+Tatar 
+Telugu 
+Tepes 
+Teribe 
+Tetum 
+Thai 
+Tibetan 
+Tigrinya 
+Tok Pisin
+Tongan 
+Tongva 
+Tsez 
+Tswana 
+Tuareg 
+Turkish 
+Tulu language
+Uduk 
+Ukrainian 
+Urdu 
+Uyghur 
+Yoruba 
