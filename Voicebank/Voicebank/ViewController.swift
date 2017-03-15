@@ -118,16 +118,16 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
     func longPressRecordButtonDidDrag(_ button: LongPressRecordButton, gesture: UIPanGestureRecognizer, originPress: CGPoint){
         let gestureLocationInView = gesture.location(in: self.view)
         if (!recordButton.frame.contains(gestureLocationInView))  {
-            showCancelView(display: false)
+            self.fadeCancel(startAlpha: 0, endAlpha: 1.0, showToast: false)
             recordingCanceled = true
         } else {
-            showCancelView(display: true)
+            self.fadeCancel(startAlpha: 1, endAlpha: 0, showToast: false)
             recordingCanceled = false
         }
     }
     
     func shouldAskInfo() -> Bool{
-        if (totalRecordings > 1) && (UserDefaults.standard.string(forKey: "userDetails") == nil) {
+        if (totalRecordings > 5) && (UserDefaults.standard.string(forKey: "userDetails") == nil) {
             return true
         } else {
             return false
@@ -188,23 +188,24 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         }
     }
     
-    func showCancelView(display: Bool){
-        if (display){
-            cancelView.isHidden = true
-        } else {
-            cancelView.isHidden = false
-            cancelView.alpha = 1
+    func fadeCancel(startAlpha: CGFloat, endAlpha: CGFloat, showToast: Bool){
+        let duration = 0.5
+        if (endAlpha == self.cancelView.alpha && !showToast){
+            return
         }
-    }
-    
-    func fadeCancel(){
-        let duration = 2.0
         UIView.animate(withDuration: duration, animations: {
-            self.cancelView.alpha = 1
+            self.cancelView.alpha = startAlpha
+            if (showToast) {
+                self.toastView.text = "Recording Canceled"
+                self.toastView.alpha = 1
+            }
         }) {
             (finished) in
             UIView.animate(withDuration: duration, animations: {
-                self.cancelView.alpha = 0
+                self.cancelView.alpha = endAlpha
+                if (showToast) {
+                    self.toastView.alpha = 0
+                }
             })
         }
     }
