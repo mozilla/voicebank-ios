@@ -94,6 +94,7 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
                 self.wsComm.uploadAudio(audioFile: self.audioFilename, sentence: self.sentence, completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
                     self.viewController.showToast("Audio uploaded")
                     self.viewController.showRandomQuote()
+                    self.viewController.countRecording()
                 })
             }
         } else {
