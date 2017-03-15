@@ -38,8 +38,15 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate {
         // Flip the view around.
         self.leftWaveView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
         
-        // Center record button.
         let mid = self.view.bounds.width / 2.0
+        
+        // align the leftWaveView
+        var newrightWaveViewFrame = self.rightWaveView.frame
+        newrightWaveViewFrame.size.width = mid
+        newrightWaveViewFrame.origin.x = mid
+        self.rightWaveView.frame = newrightWaveViewFrame
+        
+        // Center record button.
         recordButton.center = CGPoint(x: mid, y: recordButton.center.y)
         
         // Center cancel view
