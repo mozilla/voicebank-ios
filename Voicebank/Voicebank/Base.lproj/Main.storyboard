@@ -236,7 +236,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXl-eF-eoY">
                                 <rect key="frame" x="20" y="46" width="372.66666666666669" height="574"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">This applicaton is used by Mozilla engineering to collect speech samples to test and train our speech recognition engine and develop or improve other new products or services. We may also share these voice samples with third parties who are researching topics related to speech recognition or speech synthesis.
@@ -273,6 +273,6 @@ By clicking the "I agree" button below, you are agreeing to donate audio recordi
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nqD-kG-8hO"/>
+        <segue reference="blB-Kh-tZo"/>
     </inferredMetricsTieBreakers>
 </document>
