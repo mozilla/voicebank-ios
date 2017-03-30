@@ -183,6 +183,16 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate, CoachMark
             let sentenceid = Int(arc4random_uniform(UInt32(dictionary.count)))
             let sentencesSpoken = (UserDefaults.standard.stringArray(forKey: "sentencesSpoken") ?? [String]())
             var newSentence = false
+            if (dictionary.count == sentencesSpoken.count) {
+                let alert = UIAlertController(title: "Warning", message: "You completed all the sentences!", preferredStyle:UIAlertControllerStyle.alert)
+                let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true){
+                    
+                }
+                return;
+            }
+            
             while (!newSentence) {
                 if let sentence = dictionary[String(sentenceid)] as? String {
                     let sentenceHash = sentence.digest(length: CC_SHA1_DIGEST_LENGTH, gen: {(data, len, md) in CC_SHA1(data,len,md)})
