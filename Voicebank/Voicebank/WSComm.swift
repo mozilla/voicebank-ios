@@ -18,36 +18,40 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
     }
     
     func uploadAudio(audioFile : URL, sentence : String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        do {
-            let data: NSData = try NSData(contentsOfFile: audioFile.path)
-            let sentenceHash = sentence.digest(length: CC_SHA1_DIGEST_LENGTH, gen: {(data, len, md) in CC_SHA1(data,len,md)})
-            let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/upload/\(sentenceHash)/") as! URL)
-            request.httpMethod = "POST"
-            request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
-            request.setValue("audio/mp4a", forHTTPHeaderField: "content-type")
-            request.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "uid")
-            request.setValue(sentence, forHTTPHeaderField: "sentence")
-            let configuration = URLSessionConfiguration.default
-            let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
-            let task = session.uploadTask(with: request as URLRequest, from: data as Data, completionHandler: completion)
-            task.resume()
-        } catch let error as NSError{
-            print("Error: \(error)")
+        DispatchQueue.main.async {
+            do {
+                let data: NSData = try NSData(contentsOfFile: audioFile.path)
+                let sentenceHash = sentence.digest(length: CC_SHA1_DIGEST_LENGTH, gen: {(data, len, md) in CC_SHA1(data,len,md)})
+                let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/upload/\(sentenceHash)/") as! URL)
+                request.httpMethod = "POST"
+                request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
+                request.setValue("audio/mp4a", forHTTPHeaderField: "content-type")
+                request.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "uid")
+                request.setValue(sentence, forHTTPHeaderField: "sentence")
+                let configuration = URLSessionConfiguration.default
+                let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
+                let task = session.uploadTask(with: request as URLRequest, from: data as Data, completionHandler: completion)
+                task.resume()
+            } catch let error as NSError{
+                print("Error: \(error)")
+            }
         }
     }
     
     func uploadInfo(gender: String, age: String, language: String) {
-        let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/data/ios/") as! URL)
-        request.httpMethod = "GET"
-        request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
-        request.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "id")
-        request.setValue(gender, forHTTPHeaderField: "gender")
-        request.setValue(age, forHTTPHeaderField: "age")
-        request.setValue(language, forHTTPHeaderField: "langs1")
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request as URLRequest)
-        task.resume()
+        DispatchQueue.main.async {
+            let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/data/ios/") as! URL)
+            request.httpMethod = "GET"
+            request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
+            request.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "id")
+            request.setValue(gender, forHTTPHeaderField: "gender")
+            request.setValue(age, forHTTPHeaderField: "age")
+            request.setValue(language, forHTTPHeaderField: "langs1")
+            let configuration = URLSessionConfiguration.default
+            let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
+            let task = session.dataTask(with: request as URLRequest)
+            task.resume()
+        }
     }
     
     func getSentences(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
