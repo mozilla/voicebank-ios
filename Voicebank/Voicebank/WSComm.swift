@@ -17,11 +17,10 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
         
     }
     
-    func uploadAudio(audioFile : URL, sentence : String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    func uploadAudio(audioFile : URL, sentence : String, sentenceHash: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         DispatchQueue.main.async {
             do {
                 let data: NSData = try NSData(contentsOfFile: audioFile.path)
-                let sentenceHash = sentence.digest(length: CC_SHA1_DIGEST_LENGTH, gen: {(data, len, md) in CC_SHA1(data,len,md)})
                 let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/upload/\(sentenceHash)/") as! URL)
                 request.httpMethod = "POST"
                 request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
@@ -32,6 +31,9 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
                 let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
                 let task = session.uploadTask(with: request as URLRequest, from: data as Data, completionHandler: completion)
                 task.resume()
+                var sentencesSpoken = (UserDefaults.standard.stringArray(forKey: "sentencesSpoken") ?? [String]())
+                sentencesSpoken.append(sentenceHash)
+                UserDefaults.standard.set(sentencesSpoken, forKey: "sentencesSpoken")
             } catch let error as NSError{
                 print("Error: \(error)")
             }
@@ -62,24 +64,6 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
         let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request as URLRequest, completionHandler: completion)
         task.resume()
-    }
-    
-}
-
-extension String {
-    
-    func digest(length:Int32, gen:(_ data: UnsafeRawPointer, _ len: CC_LONG, _ md: UnsafeMutablePointer<UInt8>) -> UnsafeMutablePointer<UInt8>) -> String {
-        var cStr = [UInt8](self.utf8)
-        var result = [UInt8](repeating:0, count:Int(length))
-        gen(&cStr, CC_LONG(cStr.count), &result)
-        
-        let output = NSMutableString(capacity:Int(length))
-        
-        for r in result {
-            output.appendFormat("%02x", r)
-        }
-        
-        return String(output)
     }
     
 }

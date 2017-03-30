@@ -91,7 +91,8 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if (!self.recordingCanceled){
             if flag {
-                self.wsComm.uploadAudio(audioFile: self.audioFilename, sentence: self.sentence, completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
+                let sentenceHash = sentence.digest(length: CC_SHA1_DIGEST_LENGTH, gen: {(data, len, md) in CC_SHA1(data,len,md)})
+                self.wsComm.uploadAudio(audioFile: self.audioFilename, sentence: self.sentence, sentenceHash: sentenceHash, completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
                     print("upload completed");
                 })
                 self.viewController.showRandomQuote()
