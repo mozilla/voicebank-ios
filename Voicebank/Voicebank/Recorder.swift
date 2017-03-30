@@ -92,10 +92,10 @@ class Recorder:  NSObject, AVAudioRecorderDelegate {
         if (!self.recordingCanceled){
             if flag {
                 self.wsComm.uploadAudio(audioFile: self.audioFilename, sentence: self.sentence, completion: {(data : Data?, urlresponse: URLResponse?, error: Error?) -> Void in
-                    self.viewController.showToast("Audio uploaded")
-                    self.viewController.showRandomQuote()
-                    self.viewController.countRecording()
+                    print("upload completed");
                 })
+                self.viewController.showRandomQuote()
+                self.viewController.countRecording()
             }
         } else {
             self.viewController.fadeCancel(startAlpha: 1, endAlpha: 0, showToast: true)
