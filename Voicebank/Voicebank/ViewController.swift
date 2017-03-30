@@ -181,11 +181,21 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate, CoachMark
         }
         if let dictionary = self.jsonSentences as? NSDictionary {
             let sentenceid = Int(arc4random_uniform(UInt32(dictionary.count)))
-            if let sentence = dictionary[String(sentenceid)] as? String {
-                // display the sentence
-                showText(sentence)
-                // now we generate sentence hash an pass it to the recorder
-                recorder.sentence = sentence
+            let sentencesSpoken = (UserDefaults.standard.stringArray(forKey: "sentencesSpoken") ?? [String]())
+            var newSentence = false
+            while (!newSentence) {
+                if let sentence = dictionary[String(sentenceid)] as? String {
+                    let sentenceHash = sentence.digest(length: CC_SHA1_DIGEST_LENGTH, gen: {(data, len, md) in CC_SHA1(data,len,md)})
+                    if (!sentencesSpoken.contains(sentenceHash)) {
+                        // display the sentence
+                        showText(sentence)
+                        // and pass it to the recorder
+                        recorder.sentence = sentence
+                        newSentence = true
+                    } else {
+                        newSentence = false
+                    }
+                }
             }
         }
     }
@@ -391,7 +401,22 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate, CoachMark
         return 5
     }
 
-    
-    
 }
 
+extension String {
+    
+    func digest(length:Int32, gen:(_ data: UnsafeRawPointer, _ len: CC_LONG, _ md: UnsafeMutablePointer<UInt8>) -> UnsafeMutablePointer<UInt8>) -> String {
+        var cStr = [UInt8](self.utf8)
+        var result = [UInt8](repeating:0, count:Int(length))
+        gen(&cStr, CC_LONG(cStr.count), &result)
+        
+        let output = NSMutableString(capacity:Int(length))
+        
+        for r in result {
+            output.appendFormat("%02x", r)
+        }
+        
+        return String(output)
+    }
+    
+}
