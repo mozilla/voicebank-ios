@@ -200,7 +200,7 @@ class ViewController: UIViewController, LongPressRecordButtonDelegate, CoachMark
                         // display the sentence
                         showText(sentence)
                         // and pass it to the recorder
-                        recorder.sentence = sentence
+                        recorder.setSentence(sentence: sentence)
                         newSentence = true
                     } else {
                         newSentence = false
