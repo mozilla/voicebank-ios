@@ -17,22 +17,22 @@ class WSComm: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
         
     }
     
-    func uploadAudio(audioFile : URL, sentence : String, sentenceHash: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    func uploadAudio(sentence: Sentence, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         DispatchQueue.main.async {
             do {
-                let data: NSData = try NSData(contentsOfFile: audioFile.path)
-                let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/upload/\(sentenceHash)/") as! URL)
+                let data: NSData = try NSData(contentsOfFile: sentence.audioFilename.path)
+                let request = NSMutableURLRequest(url: NSURL(string: "\(self.webserviceEndpoint)/upload/\(sentence.sentenceHash)/") as! URL)
                 request.httpMethod = "POST"
                 request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
                 request.setValue("audio/mp4a", forHTTPHeaderField: "content-type")
                 request.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "uid")
-                request.setValue(sentence, forHTTPHeaderField: "sentence")
+                request.setValue("\(sentence.sentence)|\(sentence.sentenceSTT)"   , forHTTPHeaderField: "sentence")
                 let configuration = URLSessionConfiguration.default
                 let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
                 let task = session.uploadTask(with: request as URLRequest, from: data as Data, completionHandler: completion)
                 task.resume()
                 var sentencesSpoken = (UserDefaults.standard.stringArray(forKey: "sentencesSpoken") ?? [String]())
-                sentencesSpoken.append(sentenceHash)
+                sentencesSpoken.append(sentence.sentenceHash)
                 UserDefaults.standard.set(sentencesSpoken, forKey: "sentencesSpoken")
             } catch let error as NSError{
                 print("Error: \(error)")
