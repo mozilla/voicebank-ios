@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E04BFAF1E792B700094E499 /* Instructions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E04BFA51E792B420094E499 /* Instructions.framework */; };
-		3E04BFB01E792B700094E499 /* Instructions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E04BFA51E792B420094E499 /* Instructions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E217B961E78A686002E9FE9 /* langs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3E217B951E78A686002E9FE9 /* langs.txt */; };
 		3E217B971E78A686002E9FE9 /* langs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3E217B951E78A686002E9FE9 /* langs.txt */; };
 		3E217B981E78A686002E9FE9 /* langs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3E217B951E78A686002E9FE9 /* langs.txt */; };
@@ -31,28 +29,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3E04BFA41E792B420094E499 /* PBXContainerItemProxy */ = {
+		3E05D72D1EB1837400886BDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E04BF9E1E792B420094E499 /* Instructions.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C64FB2E91BB6CA8A0081E5B6;
 			remoteInfo = Instructions;
 		};
-		3E04BFA61E792B420094E499 /* PBXContainerItemProxy */ = {
+		3E05D72F1EB1837400886BDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E04BF9E1E792B420094E499 /* Instructions.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C6417E331D291A8A004D13EA;
 			remoteInfo = InstructionsAppExtensions;
 		};
-		3E04BFA81E792B420094E499 /* PBXContainerItemProxy */ = {
+		3E05D7311EB1837400886BDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E04BF9E1E792B420094E499 /* Instructions.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C64FB2F31BB6CA8A0081E5B6;
 			remoteInfo = InstructionsTests;
 		};
-		3E04BFB11E792B700094E499 /* PBXContainerItemProxy */ = {
+		3E05D7331EB183E600886BDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E04BF9E1E792B420094E499 /* Instructions.xcodeproj */;
 			proxyType = 1;
@@ -82,7 +80,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3E04BFB01E792B700094E499 /* Instructions.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,7 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3E04BF9E1E792B420094E499 /* Instructions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Instructions.xcodeproj; path = ../../Instructions/Instructions.xcodeproj; sourceTree = "<group>"; };
+		3E04BF9E1E792B420094E499 /* Instructions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Instructions.xcodeproj; path = Instructions/Instructions.xcodeproj; sourceTree = "<group>"; };
 		3E217B951E78A686002E9FE9 /* langs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = langs.txt; sourceTree = "<group>"; };
 		3E4AC4181E5E3A61003061F5 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		3E586C7E1E737EB7002C56CA /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E04BFAF1E792B700094E499 /* Instructions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,12 +139,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3E04BF9F1E792B420094E499 /* Products */ = {
+		3E05D7281EB1837400886BDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E04BFA51E792B420094E499 /* Instructions.framework */,
-				3E04BFA71E792B420094E499 /* InstructionsAppExtensions.framework */,
-				3E04BFA91E792B420094E499 /* InstructionsTests.xctest */,
+				3E05D72E1EB1837400886BDF /* Instructions.framework */,
+				3E05D7301EB1837400886BDF /* InstructionsAppExtensions.framework */,
+				3E05D7321EB1837400886BDF /* InstructionsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,7 +227,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				3E04BFB21E792B700094E499 /* PBXTargetDependency */,
+				3E05D7341EB183E600886BDF /* PBXTargetDependency */,
 			);
 			name = Voicebank;
 			productName = Voicebank;
@@ -317,7 +313,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3E04BF9F1E792B420094E499 /* Products */;
+					ProductGroup = 3E05D7281EB1837400886BDF /* Products */;
 					ProjectRef = 3E04BF9E1E792B420094E499 /* Instructions.xcodeproj */;
 				},
 			);
@@ -331,25 +327,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3E04BFA51E792B420094E499 /* Instructions.framework */ = {
+		3E05D72E1EB1837400886BDF /* Instructions.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Instructions.framework;
-			remoteRef = 3E04BFA41E792B420094E499 /* PBXContainerItemProxy */;
+			remoteRef = 3E05D72D1EB1837400886BDF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3E04BFA71E792B420094E499 /* InstructionsAppExtensions.framework */ = {
+		3E05D7301EB1837400886BDF /* InstructionsAppExtensions.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = InstructionsAppExtensions.framework;
-			remoteRef = 3E04BFA61E792B420094E499 /* PBXContainerItemProxy */;
+			remoteRef = 3E05D72F1EB1837400886BDF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3E04BFA91E792B420094E499 /* InstructionsTests.xctest */ = {
+		3E05D7321EB1837400886BDF /* InstructionsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = InstructionsTests.xctest;
-			remoteRef = 3E04BFA81E792B420094E499 /* PBXContainerItemProxy */;
+			remoteRef = 3E05D7311EB1837400886BDF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -422,10 +418,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3E04BFB21E792B700094E499 /* PBXTargetDependency */ = {
+		3E05D7341EB183E600886BDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Instructions;
-			targetProxy = 3E04BFB11E792B700094E499 /* PBXContainerItemProxy */;
+			targetProxy = 3E05D7331EB183E600886BDF /* PBXContainerItemProxy */;
 		};
 		3E5C8E9F1E579B2C00AE2AE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
