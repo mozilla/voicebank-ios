@@ -1,0 +1,3 @@
+[submodule "Voicebank/Instructions"]
+	path = Voicebank/Instructions
+	url = https://github.com/ephread/Instructions
